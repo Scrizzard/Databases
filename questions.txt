@@ -1,0 +1,9 @@
+Questions to ask Bob on Friday afternoon:
+
+1. We're looking at creating a web interface in php for customers to buy train
+tickets. How far should we go in terms of implementing a secure site? ie. so
+that different customers can't look at each others booking information
+
+2. 
+
+3. 
