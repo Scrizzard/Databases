@@ -1,0 +1,79 @@
+Ticket Seller (?)
+
+Ticket
+
+Engine Instance
+	-car limit
+	-current car number
+	-points to multiple cars
+	-years of service
+	-in service
+
+Traincar
+	-years of service
+	-in service
+
+Tracks
+	-endpoint station
+	-endpoint station (how do we prevent listing a track twice, eg Amherst-Sackille, Sackville-Amherst)
+	-no. parallel tracks
+	-in service
+	
+Train Route (finite number of these?)
+	-list of train stations (or list of tracks?)
+	-distance
+
+Passenger car
+	-passenger limit
+	-in service
+
+
+Freight car
+	-freight limit
+	-in service
+
+Passenger
+	-passport number
+	-passenger ID
+	-nationality
+	-address
+	-name
+	-phone
+	-payment info
+
+Engine Model
+	-year issued
+	-designer
+	-fuel used
+
+Freight
+	-name
+	-client
+	-source/destination
+	
+Staff
+	-engine ID
+	-waiter
+	-conductor
+	-engineer
+	-bartender
+	
+Employee
+	-name
+	-qualification
+	-years of experience
+	-ID
+	
+Conductor
+	-(what makes a conductor unique?)
+	
+Engineer
+	-qualifid engine models
+	
+Train Station
+	-name
+	-location
+	-code/ID
+	
+Train Schedule
+	-Train station
