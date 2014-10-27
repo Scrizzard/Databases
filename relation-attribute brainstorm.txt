@@ -15,7 +15,7 @@ Traincar
 
 Tracks
 	-endpoint station
-	-endpoint station (how do we prevent listing a track twice, eg Amherst-Sackille, Sackville-Amherst)
+	-endpoint station (how do we prevent listing a track twice, eg Amherst-Sackville, Sackville-Amherst)
 	-no. parallel tracks
 	-in service
 	
@@ -41,12 +41,12 @@ Passenger
 	-phone
 	-payment info
 
-Engine Model
+Engine Type
 	-year issued
 	-designer
 	-fuel used
 
-Freight
+Cargo
 	-name
 	-client
 	-source/destination
@@ -68,12 +68,12 @@ Conductor
 	-(what makes a conductor unique?)
 	
 Engineer
-	-qualifid engine models
+	-qualified engine models
 	
 Train Station
 	-name
 	-location
 	-code/ID
 	
-Train Schedule
+Train Schedule (this confuses me)
 	-Train station
