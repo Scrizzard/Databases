@@ -1,0 +1,18 @@
+Overview:
+	We wish to design a database to store railway information. The information will concern trains, cargo, and passengers, and routes. The database will be accessed through a web interface. There will be different restrictions on which content can be viewed and accessed depending on the user's permission level.
+	
+Specifications:
+	The railway system may be imagined as a graph, in which the stations are verticies and the tracks are edges. A train route describes a path in this graph. A train route has a start station and an end station.
+	
+	A train is (at least?) one engine pulling a series of traincars. Each traincar has a capacity for passengers and tonnage of cargo. Each train is manned by a crew, including the conductor, engineer, stewards, etc. A train's unique identifier will be its engine.
+	
+	Trains may embark on trips, which are train routes occurring at a specific time.
+	
+	A customer may own tickets for trips. A customer may also be on a single passenger car.
+	
+Goals:
+	-Track the location of all trains, cargo, and passengers
+	-Accurately model railway system behaviour
+	-Create a convenient, simple, and useful tool to access, store, and manipulate this data
+	-Permit extension of our system to add new functionality
+	-Make our system efficient in terms of speed and memory usage

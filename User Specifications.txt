@@ -1,0 +1,28 @@
+Passenger:
+	Able to view: 
+		-Ticket 
+		-Train route
+		-Passenger
+		-Staff
+		-Train schedule
+  
+	Able to modify:
+		-Ticket - may purchase tickets for future, non-filled voyages
+		-Passenger - may modify their personal information (besides their unique ID)
+    
+Employee
+	Able to view:
+		-All but Passenger and Employee
+  
+	Able to modify:- with the constraint that they have appropriate qualification
+		-Freight Car
+		-Passenger Car
+		-Cargo
+		Train schedule
+  
+Administrator 
+	Able to view and modify all relations (provided they follow database constraints)
+  
+    
+    
+    

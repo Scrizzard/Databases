@@ -1,6 +1,0 @@
-  The goals of our train DBMS is to track all freight and passengers trains operating on a set of tracks. 
-The DBMS would allow tickets to be booked by a passenger for a voyage. The voyage would have specific attributes
-which represent the rout the train will take and what element are involved in achieving the specified voyage. 
-In addition to passenger cars our DBMS will have freight cars which transport cargo, and have specific pick up and 
-drop off destinations.  A keystone to DBMS will be the Engine ID associated with a specific engine, as most attributes i
-n the DMBS can only relate to a single engine at one time. 
