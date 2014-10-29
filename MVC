@@ -1,0 +1,29 @@
+Passenger-
+  Able to view: 
+   Ticket 
+   Train rout
+   Passenger
+   Staff
+   Train schedual
+  
+  Able to modify:
+    Ticket- with constraints on availabilty
+    Passerger-with the constraint of not being able to modify their ID
+    
+Employee
+  Able to view:
+  All relations, except Passenger, and Employee
+  
+  Able to modify:- with the constraint that they have appropriate qualification
+    Freight Car
+    Passenger Car
+    Cargo
+    Train schedual
+  
+  Adminisrtator- 
+  Able to view and modify:
+    All relations -with the constraint that no data previously entered becomes disfunctional
+  
+    
+    
+    
