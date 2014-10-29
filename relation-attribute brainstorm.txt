@@ -1,79 +1,95 @@
-Ticket Seller (?)
+Ticket Seller (?)**** I dont think we need this relation, I have added a ticket selle attribut to the staff relation
 
 Ticket
+	-(primary key)passenger ID
 
 Engine Instance
 	-car limit
 	-current car number
-	-points to multiple cars
+	-points to multiple cars/////////How does this work?
 	-years of service
 	-in service
+	-(primary key)engine ID*****I added this 
 
 Traincar
 	-years of service
 	-in service
+	-car ID*****I added this 
+	-type*****I added this 
 
 Tracks
-	-endpoint station
-	-endpoint station (how do we prevent listing a track twice, eg Amherst-Sackville, Sackville-Amherst)
+	-(primary key)endpoint station
+	-(primary key)endpoint station (how do we prevent listing a track twice, eg Amherst-Sackville, Sackville-Amherst)
 	-no. parallel tracks
 	-in service
+	-track ID****I added this could also be "name"-this would also be a primary key on its own
 	
-Train Route (finite number of these?)
+Train Route (finite number of these?-yes)
 	-list of train stations (or list of tracks?)
 	-distance
 
 Passenger car
 	-passenger limit
 	-in service
+	-(primary key)car ID******I added this
+	-(foreign key)currently Attached to Engine****I added this , call engine ID instead?
 
 
 Freight car
 	-freight limit
 	-in service
+	-(primary key)car ID******I added this
+	-(foreign key)currently attached to Engine***I added this, call engine ID instead?
 
 Passenger
 	-passport number
-	-passenger ID
+	-(primary key)passenger ID
 	-nationality
 	-address
 	-name
 	-phone
 	-payment info
 
-Engine Type
+Engine Type//////////Should this just be an attribute of engine instantce? (type that is, and forget about the relations attributes)  the type could be electric, coal, as gas
+/////The only valuable info i see here is the fuel
 	-year issued
 	-designer
 	-fuel used
+	-car limit****I added this
 
-Cargo
+Cargo  
 	-name
 	-client
-	-source/destination
+	-(foreign key)car ID***I added this represents where the cargo is now
 	
-Staff
-	-engine ID
-	-waiter
-	-conductor
-	-engineer
-	-bartender
+Staff On Board 
+	-(foreign key)engine ID
+	-(primary key)waiter
+	-(primary key)conductor
+	-(primary key)engineer
+	-(primary key)bartender
+	-(primary key)ticket seller
 	
 Employee
 	-name
 	-qualification
 	-years of experience
-	-ID
+	-(primary key)ID #
+	-(foreign key) engin ID***I added thie represents what train they are on now
 	
-Conductor
+Conductor******	I dont think we need this since we have qualification in the employee relation
 	-(what makes a conductor unique?)
 	
-Engineer
+Engineer****I dont think we need this relation either 
 	-qualified engine models
 	
 Train Station
 	-name
 	-location
-	-code/ID
+	-(primary key)code/ID
 	
-Train Schedule (this confuses me)
-	-Train station
+Train Schedule 
+	-(primary key)Train station 
+	-(primary key)Time in*****I added this
+	-(primary key)Time out*****I added this
+	-(primary key)(foreign key)Engine ID****I added this 
