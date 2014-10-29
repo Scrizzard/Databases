@@ -16,5 +16,7 @@ tickets. How far should we go in terms of implementing a secure site?
 
 7. What is the next step after creating a relational diagram for our database?
 	-what exactly do we need to do in XAMPP?
+	
+8. Is is bad to give a lot of relations an ID attribute?
 
 Note: they do have a foreign key. 
