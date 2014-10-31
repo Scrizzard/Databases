@@ -1,91 +1,96 @@
 
 Ticket
-	-(primary key)passenger ID
+	-primary key ID
+	-(foreign key) passenger ID
+	-(foreign key) train voyage ID
+	-(foreign key) passenger car ID
+	-price (computed from passenger car multiplier and route base cost)
 
-Engine Instance
-	-car limit
-	-current car number
-	-points to multiple cars (how do we implement this?)
-	-years of service
-	-in service
-	-engine ID (primary key)
-
-Traincar
-	-years of service
-	-in service
-	-car ID 
-	-type 
-
-Tracks
-	-endpoint station
-	-endpoint station (how do we prevent listing a track twice, eg Amherst-Sackville, Sackville-Amherst)
-	-no. parallel tracks
-	-in service
-	-track ID (primary key)
+Car/Voyage Pair
+	-(foreign key) voyage ID
+	-(foreign key) car ID
 	
-Train Route (finite number of these?-yes)
-	-list of train stations (or list of tracks?)
-	-distance
+Engine/Voyage Pair
+	-(foreign key) voyage ID
+	-(foreign key) engine ID
 
-Passenger car
-	-passenger limit
-	-in service
-	-car ID (primary key)
-	-engine ID (foreign key)
+Employee/Voyage Pair
+	-(foreign key) voyage ID
+	-(foreign key) voyage ID
+	
+Car
+	-primary key ID
+	-in service state
+	
+Passenger Car
+	-number of seats (eg, number of available tickets)
+	-class (numerical multiplier for cost)
 
-
-Freight car
-	-freight limit
-	-in service
-	-car ID (primary key)
-	-engine ID(foreign key)
-
-Passenger
-	-passport number
-	-(primary key)passenger ID
-	-nationality
-	-address
-	-name
-	-phone
-	-payment info
-
+Baggage Car
+	-number of people whose baggage it can store
+	
+Dining Car
+	-number of people it can satiate over a given voyage
+	
+Engine
+	-(primary key) engine ID
+	-year of construction
+	-(foreign key) engine model name
+	-in service state
+	
 Engine Type
-	-year issued
+	-(primary key) name
 	-fuel type
-	-car limit
-	-country of origin
+	-year of invention
+	-inventor (optional)
+	-country of origin (optional)
+	-maximum cars pulled
 
-Cargo  
+Voyage
+	-(primary key) voyage ID
+	-start date and time
+	-(foreign key) train route
+
+Train Station
+	-(primary key) name
+	-(primary key) station ID
+	-latitude (optional)
+	-longitude (optional)
+
+Track Section (we assume double tracks everywhere)
+	-(primary key) section ID
+	-(foreign key) station of origin
+	-(foreign key) terminal station
+	-in service state
+
+Section/Route (use this with the route's start/endpoint stations to piece together the train's path)
+	-(foreign key) Track Section
+	-(foreign key) Train Route
+	
+Train Route
+	-(primary key) route ID
+	-(foreign key) start point
+	-(foreign key) endpoint
+	-distance
+	-base cost
+	-travel time (functionally dependant on distance?)
+	
+Passenger
+	-(primary key) passport number (optional)
+	-(primary key) passenger ID
 	-name
-	-client
-	-weight
-	-car ID (foreign key)
-
-Staff On Board 
-	-(foreign key)engine ID
-	-(primary key)waiter
-	-(primary key)conductor
-	-(primary key)engineer
-	-(primary key)bartender
-	-(primary key)ticket seller
+	-nationality (optional)
+	-address (optional)
+	-phone (optional)
+	-payment info (optional)
 	
 Employee
+	-(primary key) employee ID
 	-name
-	-title
+	-title (eg, Assistant Engineer in Training)
 	-years of experience
-	-ID # (primary key)
-	-(foreign key) engine ID
 	
 Engineer 
 	-qualified engine models
 	
-Train Station
-	-name
-	-location
-	-(primary key)code/ID
-	
-Train Schedule (Benji: I don't know how to fit this into our model. How would this be used?)
-	-(primary key)Train station 
-	-(primary key)Time in
-	-(primary key)Time out
-	-(primary key)(foreign key)Engine ID
+Train Schedule will be in our view, not a relation.
