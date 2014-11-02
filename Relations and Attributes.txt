@@ -1,11 +1,15 @@
-
 Ticket
 	-primary key ID
 	-(foreign key) passenger ID
 	-(foreign key) train voyage ID
 	-(foreign key) passenger car ID
 	-price (computed from passenger car multiplier and route base cost)
+	-seat number/code
 
+Ticket/Passenger Pair
+	-(foreign key) ticket ID
+	-(foreign key) passenger ID
+	
 Car/Voyage Pair
 	-(foreign key) voyage ID
 	-(foreign key) car ID
@@ -45,7 +49,7 @@ Engine Type
 	-inventor (optional)
 	-country of origin (optional)
 	-maximum cars pulled
-
+	
 Voyage
 	-(primary key) voyage ID
 	-start date and time
@@ -66,6 +70,7 @@ Track Section (we assume double tracks everywhere)
 Section/Route (use this with the route's start/endpoint stations to piece together the train's path)
 	-(foreign key) Track Section
 	-(foreign key) Train Route
+	-order of visitation (1st section travelled will be 1, nth section travelled will be n)
 	
 Train Route
 	-(primary key) route ID
@@ -90,7 +95,8 @@ Employee
 	-title (eg, Assistant Engineer in Training)
 	-years of experience
 	
-Engineer 
-	-qualified engine models
+Engine Type/Employee Pairs
+	-(foreign key) employee ID
+	-(foreign key) engine type name
 	
 Train Schedule will be in our view, not a relation.
