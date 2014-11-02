@@ -4,26 +4,64 @@ CS3811/2014 - Project Specification
 Important notes
 
     You must read, understand and comply with all of the instructions in this document.
-    Your work will be done by a team of three and all members of your team will participate in all phases of the project. That is, each team member must contribute to the design, implementation and documentation. Each team member is expected to become familiar with mysql/php, and each team member must take part in writing the User Guide.
-    Normally, all team members will receive the same grade for the project. Therefore, you must contact the course instructor if you do not participate in the completion of any of the three phases of the project.
-    The project forms a major part of the assessment in the course. Late submission of any part of the project with a deadline in bold below will result in a penalty of .67 grade points per day for up to three days, after which that part of the project will be graded incomplete.
+    Your work will be done by a team of three and all members of your team will participate in all phases of the project.
+    That is, each team member must contribute to the design, implementation and documentation. Each team member is
+    expected to become familiar with mysql/php, and each team member must take part in writing the User Guide.
+    Normally, all team members will receive the same grade for the project. Therefore, you must contact the course 
+    instructor if you do not participate in the completion of any of the three phases of the project.
+    The project forms a major part of the assessment in the course. Late submission of any part of the project with 
+    a deadline in bold below will result in a penalty of .67 grade points per day for up to three days, after which 
+    that part of the project will be graded incomplete.
     The grade for the project will be weighted approximately equally on each of the three phases.
-    You will have noted that this is an HTML document. The visual presentation of your documents will be considered in grading. TeX or HTML are acceptable for achieving good presentation. Word-processing systems may also provide formatting, but are deprecated.
-    A presentation of your project will be done in class during the last week of classes, and there will be short presentations on designs earlier.
-    You will spend three or four hours each week outside of class on this project (but you must not exceed eight hours in any week). This allows each team member from 35 to 50 hours for completion of their part of the project. This is more time than necessary. Each team member will provide a time log for the project. Logs are due with each phase of the project, and no grade will be assigned unless a log is provided. The logs will be helpful to you in recording your progress.
-    The project completion date is December 2. On that date a final version of the Design document, the Implementation and Programmer's Guide, the User Guide and a dump of your database will be handed in. 
+    You will have noted that this is an HTML document. The visual presentation of your documents will be considered 
+    in grading. TeX or HTML are acceptable for achieving good presentation. Word-processing systems may also provide 
+    formatting, but are deprecated.
+    A presentation of your project will be done in class during the last week of classes, and there will be short 
+    presentations on designs earlier.
+    You will spend three or four hours each week outside of class on this project (but you must not exceed eight hours 
+    in any week). This allows each team member from 35 to 50 hours for completion of their part of the project. This is more 
+    time than necessary. Each team member will provide a time log for the project. Logs are due with each phase of the 
+    project, and no grade will be assigned unless a log is provided. The logs will be helpful to you in recording your 
+    progress.
+    The project completion date is December 2. On that date a final version of the Design document, 
+    the Implementation and Programmer's Guide, the User Guide and a dump of your database will be handed in. 
 
 Project outline
-You will use mysql to construct your database and you will construct a light front-end using php. The design and implementation must include:
+You will use mysql to construct your database and you will construct a light front-end using php. The design and 
+implementation must include:
 
 First phase: Design.
-    You will consult with the client (the instructor) about what is expected from the database application. You will consider the attributes, entities, relationships, constraints and views which your system needs, and design an E/R (or sketch) model. This model will be translated into the design of a relational database. Your database design must include examples of the main elements of relational systems (primary keys, foreign keys, other constraints ...); normalization is expected. You will document the design, including normalization, and provide it to the client in draft form before November 5, and in final form, after consultation with the course instructor, by November 12. The design document will not exceed 10 pages (single-spaced, minimum 12 pt type). In order to facilitate your work in the second phase of the project, we will examine features of mysql in class near the end of the design period. 
+    You will consult with the client (the instructor) about what is expected from the database application. You will 
+    consider the attributes, entities, relationships, constraints and views which your system needs, and design an E/R 
+    (or sketch) model. This model will be translated into the design of a relational database. Your database design
+    must include examples of the main elements of relational systems (primary keys, foreign keys, other constraints ...);
+    normalization is expected. You will document the design, including normalization, and provide it to the client in 
+    draft form before November 5, and in final form, after consultation with the course instructor, by November 12. 
+    The design document will not exceed 10 pages (single-spaced, minimum 12 pt type). In order to facilitate your work 
+    in the second phase of the project, we will examine features of mysql in class near the end of the design period. 
+
 Second phase: Implementation and Documentation.
-    You will design and implement a mysql database and accompanying php forms. It is recommended that you install mysql on your own computer; consult the instructor before October 24 if you require another option. The implementation is required to follow your design document. Your php forms will allow data entry, updating and access to the database. They will also enforce integrity. You will consult with the client (the course instructor) with a prototype during the implementation phase no later than November 21. At this time you will consider user views and security issues. You will write an Implementation and Programmer's Guide (not to exceed 10 pages) as a narrative of the implementation and a guide to programmers for maintenance and/or enhancement. 
+    You will design and implement a mysql database and accompanying php forms. It is recommended that you install 
+    mysql on your own computer; consult the instructor before October 24 if you require another option. The 
+    implementation is required to follow your design document. Your php forms will allow data entry, updating and 
+    access to the database. They will also enforce integrity. You will consult with the client (the course instructor)
+    with a prototype during the implementation phase no later than November 21. At this time you will consider user
+    views and security issues. You will write an Implementation and Programmer's Guide (not to exceed 10 pages) as a
+    narrative of the implementation and a guide to programmers for maintenance and/or enhancement. 
+
 Third phase: User Guide.
-    This part of the project will be developed from the design document simultaneously with the implementation. It will include brief instructions on using mysql and/or your forms for naive users. You are not expected to give an instruction manual for mysql or SQL, but you must write clear explanations of how to get into and out of the program and access your forms, how to use the forms for entering/updating data and how to write simple free-form SQL queries. The User Guide will not exceed 10 pages. A draft will be provided to the course instructor by November 28. 
+    This part of the project will be developed from the design document simultaneously with the implementation. 
+    It will include brief instructions on using mysql and/or your forms for naive users. You are not expected to give
+    an instruction manual for mysql or SQL, but you must write clear explanations of how to get into and out of the 
+    program and access your forms, how to use the forms for entering/updating data and how to write simple free-form 
+    SQL queries. The User Guide will not exceed 10 pages. A draft will be provided to the course instructor by 
+    November 28. 
 
 Application domains
 You will create your design to satisfy a client. In this case, the client is the course instructor.
 
-You will have up to two hours available for meeting with your client over the course of the project. You may use up to 90 minutes of this time during the design phase. More time with the client may be available at the client's discretion. Time with the client will be included in your time log. You are expected to discuss implementation requirements with the client after completing the design phase. Client availability times will be determined by the client. 
+You will have up to two hours available for meeting with your client over the course of the project. You may use up 
+to 90 minutes of this time during the design phase. More time with the client may be available at the client's 
+discretion. Time with the client will be included in your time log. You are expected to discuss implementation 
+requirements with the client after completing the design phase. Client availability times will be determined by 
+the client. 
