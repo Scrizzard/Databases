@@ -1,0 +1,13 @@
+Views
+
+Travel Agent 
+This view allows for a travel agent to book tickets for passengers on upcoming train voyages. Consequently, this lets the travel agent view the Train Voyages, the Passenger Cars associated with particular voyages, the route information for each voyage, as well as train station information. Additionally, the the travel agent can create, update, and delete both Passengers and Tickets.
+
+Manager (Employee Scheduler)
+The view allows a manager to schedule staff for particular voyages. This means that the manager can see the voyages, the Cars and Engine assigned to the voyage, as well as the Engine Type. Of course, the manager can also create, update and delete Employees and Employee/Voyage schedule information.
+
+Manager (Train Scheduler)
+This view allows a manager to schedule specific voyages or runs of routes. This means that the manager can create, update and delete Train Voyages.
+
+Head Office
+This view allows a senior member of the company to add, update, or delete things that rarely change. This includes the Train Routes, Track Sections, and Train Stations. It also includes Engines, Engine Type, all types of Cars (Passenger, Dining, and Baggage).

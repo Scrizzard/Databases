@@ -1,0 +1,52 @@
+Description of Entities
+
+Ticket
+The Ticket relation represents the information required to connect a passenger with a seat on a particular voyage. It includes its own Ticket ID, a foreign key to the Passenger relation, the Voyage relation, and the Passenger Car relation. These foreign keys allow the ticket to connect the specific passenger with the specific voyage along a route, in a particular car on that voyage. The Ticket relation also includes a price attribute which is calculated at the time of purchase, and a specific seat number.
+
+Car/Voyage Pair
+The Car/Voyage Pair relation simply stores foreign keys from both the Car and Voyage relations. It connects a particular train car and a particular voyage.
+
+Employee/Voyage Pair
+The Employee/Voyage Pair relation simply stores foreign keys from both the Employee and Voyage relations. It connects a particular employee and a particular voyage.
+	
+Car
+The Car relation is the super relation relation for all types of train cars. Thus, it contains the things that all train car types have in common: a Car ID, and an in service indicator.
+	
+Passenger Car
+The Passenger Car relation is a sub relation of the Car relation. It contains the number of seats available for passengers, as a class multiplier for calculating ticket prices (ie. A business class train car might have a value of 1.2, while an economy class car might have a value 1.0).
+
+Baggage Car
+The Baggage Car relation is a sub relation of the Car relation. It contains the number of spots available for passengers' bags.
+
+Dining Car
+The Dining Car relation is a sub relation of the Car relation. It contains the number of people it can feed during one hour.
+	
+Engine
+The Engine relation contains information about the engines including an engine ID, the engine's year of construction, a reference to the Engine Type relation, and an in service indicator.
+	
+Engine Type
+The Engine Type relation contains information about different models of engines. It contains an engine type ID, the type of fuel this model uses, the year the model was invented, the inventor's name, the country of origin, and the maximum name of cars this model can pull.
+	
+Voyage
+The Voyage relation refers to specific Train Voyages (or "runs") along existing routes. It contains a voyage ID, a starting date & time, and a reference to the route in the route relation the train will follow.
+
+Train Station
+The Train Station relation keeps track of all the different train stations. It contains a station ID, a station name, the address of the train station, and optionally, the latitude & longitude.
+
+Track Section
+The Track Section relations represents a set of tracks running in a particular direction between two stations. The attributes are a section ID, a reference to the origin station, a reference to the destination station, and an in service indicator.
+
+Train Route
+The Train Route relation represents an established route for a given train to follow on a voyage. It contains a route ID, a reference to the starting station, a reference to the final destination station, the total distance, the travel time, and a base ticket cost.
+
+Section/Route
+The Section/Route relation represents all the discrete sections of track between stations that add together to create an entire route. It contains a reference to the route it's a part of, as well as a reference the section of track, and an integer indicating the order of visitation (n is the nth section of track for a given route).
+	
+Passenger
+The Passenger relation represents an actual customer. It contains a passenger ID, optional passport number, name, optional nationality, optional address, optional phone number, and optional payment information.
+	
+Employee
+The Employee relation represents an actual employee. It contains an employee ID, name, title, and employment start date.
+	
+Engine Type/Employee Pairs
+The Engine Type/Employee Pairs relation simply stores foreign keys from both the Engine Type and Employee relations. It connects a particular employee and a particular engine type, to indicate that this employee is qualified to operate this type of engine.
