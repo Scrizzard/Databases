@@ -16,3 +16,33 @@ Specifications/Assumptions:
 	
 Goals:
 	The passenger train databased should be valuable to all those who interact with it. It will cover all of the above uses, as well as creating a convenient, simple, and useful tool to access, store, and manipulate passenger train data. Based off the specifications we hope our DBMS will accurately model a passenger railway system. We will create many relations in the hopes of making the database easily extendible with the creation of new relations. Creating many relations will also hopefully eliminate repetition making our database able to perform fast lookups, and require minimal memory usage     
+
+(Benji: explain why we chose to do these possibly bad things with a couple of sentences each)
+Breaches of Reality and Simplifications:
+	-we assume all trains can be coupled and decoupled instantly
+	
+	-we do not require that a train or car begin its next voyage in the station where its previous voyage ended
+	
+	-we do not prevent collision past except to prevent two trains from beginning their voyage at the same station in the same direction
+	
+	-we do not require staff for the dining cars, loading the baggage cars, etc.
+	
+	-train sizes are limited by the number of cars the engine can pull, not the weight the engine can pull
+	
+	-we don't forbid unconnected train stations (no tracks coming or going)
+	
+	-we don't forbid carless voyages, or voyages with no tickets sold
+	
+	-we don't have staff cars, fuel cars, supply cars, etc.
+	
+	-we don't have a rigorous way of calculating route distance or time length, so two otherwise identical routes might claim to be different lengths or have different travelling times
+	
+	-related to above: track sections have no associated time/distance cost
+	
+	-we don't consider that different trains might move at different speeds depending on the model or the number of cars being pulled
+	
+	-trains may complete one voyage and depart on another at the same instant, ie no minimum layover time
+	
+	-we don't permit multiple engines per voyage
+	
+	-we ignore the coupling order of cars
