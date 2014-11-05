@@ -61,6 +61,7 @@ Train Station
 	-(primary key) station ID : integer (unused?)
 	-latitude (optional) : string
 	-longitude (optional) : string
+	-address : string
 
 Track Section (we assume double tracks everywhere)
 	-(primary key) section ID : integer
