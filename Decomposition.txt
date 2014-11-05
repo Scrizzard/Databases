@@ -107,17 +107,102 @@ Engine Type
 -country of origin (optional) : string
 -maximum cars pulled : integer
 
+There are no BCNF violations here, no decomposition is required 
+------------------------------------------------------------------------------------------------------------------------------
+Voyage
+-(primary key) voyage ID : integer
+-departure date and time : date
+-arrival date and time : date
+-(foreign key) train route : integer
+
+FD's:
+voyage ID --> departure date and time 
+voyage ID --> arrival date and time 
+voyage ID --> train rout
+
+There are no BCNF violations here, no decomposition is required 
+------------------------------------------------------------------------------------------------------------------------------
+Train Station
+-(primary key) name : string
+-(primary key) station ID : integer (unused?)
+-latitude (optional) : string
+-longitude (optional) : string
+
+FD's:
+name --> station ID
+
+There are no BCNF violations here, no decomposition is required 
+------------------------------------------------------------------------------------------------------------------------------
+Track Section (we assume double tracks everywhere)
+-(primary key) section ID : integer
+-(foreign key) station of origin name : string
+-(foreign key) terminal station name : string
+-in service state: boolean
+
+FD's:
+section ID --> station of origine name 
+section ID --> terminal station name 
+
+There are no BCNF violations here, no decomposition is required 
+------------------------------------------------------------------------------------------------------------------------------
+Section/Route
+-(foreign key) Track Section ID : integer
+-(foreign key) Train Route ID : integer
+-order of visitation : integer
+FD':
+Traine Route ID --> Train Section ID
+
+There are no BCNF violations here, no decomposition is required 
+------------------------------------------------------------------------------------------------------------------------------
+Train Route
+-(primary key) route ID : integer
+-(foreign key) start station : string
+-(foreign key) endpoint : string
+-distance : float
+-base cost : float
+-travel time : integer 
+
+FD's:
+route ID --> start station
+route ID --> endpoint
+route ID --> distance
+route ID --> base cost
+
+There are no BCNF violations here, no decomposition is required 
+------------------------------------------------------------------------------------------------------------------------------
+Passenger
+-(primary key) passport number : string
+-(primary key) passenger ID : integer
+-name : string
+-nationality : string
+-address : string
+-phone : string
+-payment type : string
+
+FD's:
+passport number  --> passenger ID
+passport number  --> name
+passport number  --> nationality
+passport number  --> address
+passport number  --> phone
+
+There are no BCNF violations here, no decomposition is required 
+------------------------------------------------------------------------------------------------------------------------------
+Employee
+-(primary key) employee ID : integer
+-name : string
+-title : string
+-years of employment : integer
+
 FD's:
 
 ------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------
+Engine Type/Employee Pairs
+-(foreign key) employee ID : integer
+-(foreign key) engine type name : string
+
+FD's:
+
 ------------------------------------------------------------------------------------------------------------------------------
 
   
