@@ -195,14 +195,16 @@ Employee
 -years of employment : integer
 
 FD's:
+employee ID  --> name
+employee ID  --> title
 
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
 Engine Type/Employee Pairs
 -(foreign key) employee ID : integer
 -(foreign key) engine type name : string
 
-FD's:
-
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
 
   
