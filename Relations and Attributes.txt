@@ -1,102 +1,101 @@
 Ticket
-	-primary key ID
-	-(foreign key) passenger ID
-	-(foreign key) train voyage ID
-	-(foreign key) passenger car ID
-	-price (computed from passenger car multiplier and route base cost)
-	-seat number/code
+	-primary key ID : integer
+	-(foreign key) passenger ID : integer
+	-(foreign key) train voyage ID : integer
+	-(foreign key) passenger car ID : integer
+	-price : float
+	-seat number: integer 
 
 Ticket/Passenger Pair
-	-(foreign key) ticket ID
-	-(foreign key) passenger ID
+	-(foreign key) ticket ID : integer
+	-(foreign key) passenger ID : integer
 	
 Car/Voyage Pair
-	-(foreign key) voyage ID
-	-(foreign key) car ID
+	-(foreign key) voyage ID : integer
+	-(foreign key) car ID : integer
 	
 Engine/Voyage Pair
-	-(foreign key) voyage ID
-	-(foreign key) engine ID
+	-(foreign key) voyage ID : integer
+	-(foreign key) engine ID : integer
 
 Employee/Voyage Pair
-	-(foreign key) voyage ID
-	-(foreign key) voyage ID
+	-(foreign key) voyage ID : integer
+	-(foreign key) voyage ID : integer
 	
 Car
-	-primary key ID
-	-in service state
+	-primary key ID : integer
+	-in service state : boolean
 	
 Passenger Car
-	-number of seats (eg, number of available tickets)
-	-class (numerical multiplier for cost)
+	-number of seats : integer
+	-class : float (cost multiplier)
 
 Baggage Car
-	-number of people whose baggage it can store
+	-baggage capacity  : integer
 	
 Dining Car
-	-number of people it can satiate over a given voyage
+	-passenger limit : integer
 	
 Engine
-	-(primary key) engine ID
-	-year of construction
-	-(foreign key) engine model name
-	-in service state
+	-(primary key) engine ID : integer
+	-year of construction : integer
+	-(foreign key) engine model name : string
+	-in service state : boolean
 	
 Engine Type
-	-(primary key) name
-	-fuel type
-	-year of invention
-	-inventor (optional)
-	-country of origin (optional)
-	-maximum cars pulled
+	-(primary key) name : string
+	-fuel type : string
+	-year of invention : integer
+	-inventor (optional) : string
+	-country of origin (optional) : string
+	-maximum cars pulled : integer
 	
 Voyage
-	-(primary key) voyage ID
-	-start date and time
-	-(foreign key) train route
+	-(primary key) voyage ID : integer
+	-departure date and time : date
+	-arrival date and time : date
+	-(foreign key) train route : integer
 
 Train Station
-	-(primary key) name
-	-(primary key) station ID
-	-latitude (optional)
-	-longitude (optional)
+	-(primary key) name : string
+	-(primary key) station ID : integer (unused?)
+	-latitude (optional) : string
+	-longitude (optional) : string
 
 Track Section (we assume double tracks everywhere)
-	-(primary key) section ID
-	-(foreign key) station of origin
-	-(foreign key) terminal station
-	-in service state
+	-(primary key) section ID : integer
+	-(foreign key) station of origin name : string
+	-(foreign key) terminal station name : string
+	-in service state: boolean
 
-Section/Route (use this with the route's start/endpoint stations to piece together the train's path)
-	-(foreign key) Track Section
-	-(foreign key) Train Route
-	-order of visitation (1st section travelled will be 1, nth section travelled will be n)
+Section/Route
+	-(foreign key) Track Section ID : integer
+	-(foreign key) Train Route ID : integer
+	-order of visitation  : integer
 	
 Train Route
-	-(primary key) route ID
-	-(foreign key) start point
-	-(foreign key) endpoint
-	-distance
-	-base cost
-	-travel time (functionally dependant on distance?)
+	-(primary key) route ID : integer
+	-(foreign key) start station : string
+	-(foreign key) endpoint : string
+	-distance : float
+	-base cost : float
+	-travel time : integer (number of hours? is there a time type?)
 	
 Passenger
-	-(primary key) passport number (optional)
-	-(primary key) passenger ID
-	-name
-	-nationality (optional)
-	-address (optional)
-	-phone (optional)
-	-payment info (optional)
+	-(primary key) passport number : string
+	-(primary key) passenger ID : integer
+	-name : string
+	-nationality : string
+	-address : string
+	-phone : string
+	-payment type : string
 	
 Employee
-	-(primary key) employee ID
-	-name
-	-title (eg, Assistant Engineer in Training)
-	-years of experience
+	-(primary key) employee ID : integer
+	-name : string
+	-title : string
+	-years of employment : integer
 	
 Engine Type/Employee Pairs
-	-(foreign key) employee ID
-	-(foreign key) engine type name
-	
-Train Schedule will be in our view, not a relation.
+	-(foreign key) employee ID : integer
+	-(foreign key) engine type name : string
