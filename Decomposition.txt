@@ -7,53 +7,52 @@ Ticket
 	-(foreign key) passenger car ID
 	-price (computed from passenger car multiplier and route base cost)
 	-seat number/code
+	-discount
 
-FD'S:
+FD'S:#######################################################################################################
 	Ticket ID --> passenger ID
 	Ticket ID --> train voyage ID
 	Ticket ID --> passenger car ID
 	Ticket ID --> seat number
-	train voyage ID, passenger car ID --> price
+	train voyage ID, passenger car ID, discount --> price
   
   The left half of the last FD is not a key, and therefore this FD is a BCNF violation.
    
-  The BCNF decomposition would change this to: (but I don't actually think this makes sense)
-	train voyage ID --> price
-	passenger car ID --> price
-	(Benji: is this unfinished? A decomposition should yield relations in addition to FD's)
+  The BCNF decomposition would change this to
+	R1:
+	R2:
 	
-  
-(Benji: for each two-attribute relation, you might want to mention that they're in BCNF  because two-attribute relations are always in BCNF)
+
 ------------------------------------------------------------------------------------------------------------------------------  
 Ticket/Passenger Pair
 -(foreign key) ticket ID
 -(foreign key) passenger ID
 
-There are no BCNF violations here, not decomposition is required 
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
 Car/Voyage Pair
 -(foreign key) voyage ID
 -(foreign key) car ID
 
-There are no BCNF violations here, not decomposition is required 
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
 Engine/Voyage Pair
 -(foreign key) voyage ID
 -(foreign key) engine ID
 
-There are no BCNF violations here, not decomposition is required 
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
 Employee/Voyage Pair
 -(foreign key) voyage ID
 -(foreign key) voyage ID
 
-There are no BCNF violations here, not decomposition is required 
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
 Car
 -(primary key) car ID
 -in service state
 
-There are no BCNF violations here, not decomposition is required 
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
 Passenger Car
 -number of seats (eg, number of available tickets)
@@ -65,11 +64,51 @@ FD's:
 car ID --> number of seats
 car ID --> class
 
-There are no BCNF violations here, not decomposition is required 
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
+Baggage Car
+-baggage capacity : integer
+-primary key ID : integer
+-in service state : boolean
+
+FD's:
+car ID --> baggage capacity
+
+There are no BCNF violations here, no decomposition is required 
+
 ------------------------------------------------------------------------------------------------------------------------------
+Dining Car
+-passenger limit : integer
+-primary key ID : integer
+-in service state : boolean
+
+FD's:
+car ID --> passenger limit
+
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
+Engine
+-(primary key) engine ID : integer
+-year of construction : integer
+-(foreign key) engine model name : string
+-in service state : boolean
+
+FD's 
+engine ID --> year of construction
+engine ID --> engine model name
+
+There are no BCNF violations here, no decomposition is required 
 ------------------------------------------------------------------------------------------------------------------------------
+Engine Type
+-(primary key) name : string
+-fuel type : string
+-year of invention : integer
+-inventor (optional) : string
+-country of origin (optional) : string
+-maximum cars pulled : integer
+
+FD's:
+
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
