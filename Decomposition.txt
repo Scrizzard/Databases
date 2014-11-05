@@ -9,7 +9,7 @@ Ticket
 	-seat number/code
 	-discount
 
-FD'S:#######################################################################################################
+FD'S:
 	Ticket ID --> passenger ID
 	Ticket ID --> train voyage ID
 	Ticket ID --> passenger car ID
@@ -18,9 +18,10 @@ FD'S:###########################################################################
   
   The left half of the last FD is not a key, and therefore this FD is a BCNF violation.
    
-  The BCNF decomposition would change this to
-	R1:
-	R2:
+  The BCNF decomposition would require the Ticket relation be broken into the following two relations: 
+
+	R1:train voyage ID, passenger car ID, discount,price
+	R2:voyage ID, passenger car ID, discount, seat number, Ticket ID
 	
 
 ------------------------------------------------------------------------------------------------------------------------------  
