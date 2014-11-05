@@ -28,7 +28,7 @@ Engine Type
 The Engine Type relation contains information about different models of engines. It contains an engine type ID, the type of fuel this model uses, the year the model was invented, the inventor's name, the country of origin, and the maximum name of cars this model can pull.
 	
 Voyage
-The Voyage relation refers to specific Train Voyages (or "runs") along existing routes. It contains a voyage ID, a starting date & time, and a reference to the route in the route relation the train will follow.
+The Voyage relation refers to specific Train Voyages (or "runs") along existing routes. It contains a voyage ID, a starting date & time, a reference to the engine ID of the engine which will be on this voyage, and a reference to the route in the route relation the train will follow.
 
 Train Station
 The Train Station relation keeps track of all the different train stations. It contains a station ID, a station name, the address of the train station, and optionally, the latitude & longitude.
