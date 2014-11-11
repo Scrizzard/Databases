@@ -1,4 +1,4 @@
-Changed to the Relations and Attributed file:
+Changed to the Relations Section:
  -Split the Ticket relation into its proper decomposition and named each of the new relations (Ticket Price, and Passenger Ticket)
  -Added the discout attribute to the Ticket Price and Passenger Ticket relations 
  -Change to the following attributes:
@@ -13,5 +13,3 @@ Changed to the Relations and Attributed file:
     -"start point" to "station of origine name" ( in Train Rout relation)
     -"end point" to "terminal station name" ( in Train Rout relation)
 
-Changes to the decomposition file:
- -Added the new relational schema to the "Ticket" decomposition
