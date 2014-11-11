@@ -23,6 +23,21 @@ FD'S:
 	R1:train voyage ID, passenger car ID, discount,price
 	R2:voyage ID, passenger car ID, discount, seat number, Ticket ID
 	
+	Which become: 
+	Ticket Price
+		-(foreign key) voyage ID : integer
+		-(foreign key) car ID : integer
+		-discout: price
+		-price : float
+
+	Passenger Ticket
+		-(primary key) ticket ID : integer
+		-(foreign key) passenger ID : integer
+		-(foreign key) voyage ID : integer
+		-(foreign key)car ID : integer
+		-dicsount : float
+		-seat number: integer 
+	
 
 ------------------------------------------------------------------------------------------------------------------------------  
 Ticket/Passenger Pair
