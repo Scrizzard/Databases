@@ -1,10 +1,17 @@
-Ticket
-	-primary key ID : integer
+
+Ticket Price
+	-(foreign key) voyage ID : integer
+	-(foreign key) car ID : integer
+	-discout: price
+	-price : float 
+	
+Passenger Ticket
+	-(primary key) ticket ID : integer
 	-(foreign key) passenger ID : integer
-	-(foreign key) train voyage ID : integer
-	-(foreign key) passenger car ID : integer
-	-price : float
-	-seat number: integer 
+	-(foreign key) voyage ID : integer
+	-(foreign key)car ID : integer
+	-dicsount : float
+	-seat number: integer 	
 
 Ticket/Passenger Pair
 	-(foreign key) ticket ID : integer
@@ -20,10 +27,10 @@ Engine/Voyage Pair
 
 Employee/Voyage Pair
 	-(foreign key) voyage ID : integer
-	-(foreign key) voyage ID : integer
+	-(foreign key) employee ID : integer
 	
 Car
-	-primary key ID : integer
+	-(primary key) car ID : integer
 	-in service state : boolean
 	
 Passenger Car
@@ -39,7 +46,7 @@ Dining Car
 Engine
 	-(primary key) engine ID : integer
 	-year of construction : integer
-	-(foreign key) engine model name : string
+	-(foreign key) name : string
 	-in service state : boolean
 	
 Engine Type
@@ -52,13 +59,14 @@ Engine Type
 	
 Voyage
 	-(primary key) voyage ID : integer
-	-departure date and time : date
-	-arrival date and time : date
-	-(foreign key) train route : integer
+	-departure date : date
+	-departure time : time
+	-arrival date : date
+	-arrival time : time
+	-(foreign key) route ID : integer
 
 Train Station
 	-(primary key) name : string
-	-(primary key) station ID : integer (unused?)
 	-latitude (optional) : string
 	-longitude (optional) : string
 	-address : string
@@ -71,16 +79,16 @@ Track Section (we assume double tracks everywhere)
 
 Section/Route
 	-(foreign key) Track Section ID : integer
-	-(foreign key) Train Route ID : integer
+	-(foreign key) route ID : integer
 	-order of visitation  : integer
 	
 Train Route
 	-(primary key) route ID : integer
-	-(foreign key) start station : string
-	-(foreign key) endpoint : string
+	-station of origin name : string
+	-terminal station name : string
 	-distance : float
 	-base cost : float
-	-travel time : integer (number of hours? is there a time type?)
+	-travel time : integer 
 	
 Passenger
 	-(primary key) passport number : string
@@ -99,4 +107,4 @@ Employee
 	
 Engine Type/Employee Pairs
 	-(foreign key) employee ID : integer
-	-(foreign key) engine type name : string
+	-(foreign key) name : string
