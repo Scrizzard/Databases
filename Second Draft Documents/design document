@@ -209,50 +209,64 @@ Some real-life trains do have two engines. We chose to disallow these to save us
 (Ticket was the only relation containing a BCNF violation)\\
 Violating FD: train voyage ID, passenger car ID, discount $\rightarrow$ price\\
 Result:\\
-Relation 1:
+Ticket Price :
 \begin{itemize}
-\item train voyage ID
-\item passenger car ID
-\item discount,
-\item price
+-(foreign key) voyage ID : integer
+-(foreign key) car ID : integer
+-discout: price
+-price : float 
 \end{itemize}
-Relation 2:
+Passenger Ticket:
 \begin{itemize}
-\item voyage ID
-\item passenger car ID
-\item discount
-\item seat number
-\item Ticket ID
+-(primary key) ticket ID : integer
+-(foreign key) passenger ID : integer
+-(foreign key) voyage ID : integer
+-(foreign key)car ID : integer
+-dicsount : float
+-seat number: integer
 \end{itemize}
 
 The Ticket relation represents the information required to connect a passenger with a seat on a particular voyage. It includes its own Ticket ID, a foreign key to the Passenger relation, the Voyage relation, and the Passenger Car relation. These foreign keys allow the ticket to connect the specific passenger with the specific voyage along a route, in a particular car on that voyage. The Ticket relation also includes a price attribute which is calculated at the time of purchase, and a specific seat number.
 
-
+\subsection*{Ticket/Passenger Pair}
+\begin{itemize}
+-(foreign key) ticket ID : integer
+-(foreign key) passenger ID : integer
+\end{itemize}
+	
 \subsection*{Car/Voyage Pair}
 \begin{itemize}
-\item (foreign key) voyage ID : integer
-\item (foreign key) car ID : integer
+-(foreign key) voyage ID : integer
+-(foreign key) car ID : integer
 \end{itemize}
 The Car/Voyage Pair relation simply stores foreign keys from both the Car and Voyage relations. It connects a particular train car and a particular voyage.
 
+\subsection*{Engine/Voyage Pair}
+\begin{itemize}
+-(foreign key) voyage ID : integer
+-(foreign key) engine ID : integer
+\end{itemize}
+
 \subsection*{Employee/Voyage Pair}
 \begin{itemize}
-\item (foreign key) voyage ID : integer
-\item (foreign key) engine ID : integer
+-(foreign key) voyage ID : integer
+-(foreign key) employee ID : integer
 \end{itemize}
 The Employee/Voyage Pair relation simply stores foreign keys from both the Employee and Voyage relations. It connects a particular employee and a particular voyage.
 
 \subsection*{Car}
 \begin{itemize}
-\item primary key ID : integer
-\item in service state : boolean
+-(primary key) car ID : integer
+-in service state : boolean
 \end{itemize}
 The Car relation is the super relation for all types of train cars. Thus, it contains the things that all train car types have in common: a Car ID, and an in service indicator.
 
 \subsection*{Passenger Car}
 \begin{itemize}
-\item number of seats : integer
-\item class : float
+-(primary key) car ID : integer
+-in service state : boolean
+-number of seats : integer
+-class : float (cost multiplier)
 \end{itemize}
 \subsubsection*{Functional Dependencies}
 \begin{itemize}
@@ -263,7 +277,9 @@ The Passenger Car relation is a sub-relation of the Car relation. It contains th
 
 \subsection*{Baggage Car}
 \begin{itemize}
-\item baggage capacity  : integer
+-(primary key) car ID : integer
+-in service state : boolean
+-baggage capacity  : integer
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -273,7 +289,9 @@ The Baggage Car relation is a sub-relation of the Car relation. It contains the 
 
 \subsection*{Dining Car}
 \begin{itemize}
-\item passenger limit : integer
+-(primary key) car ID : integer
+-in service state : boolean
+-passenger limit : integer
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
