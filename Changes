@@ -1,0 +1,14 @@
+Changed to the Relations and Attributed file:
+ -Split the Ticket relation into its proper decomposition and named each of the new relations (Ticket Price, and Passenger Ticket)
+ -Added the discout attribute to the Ticket Price and Passenger Ticket relations 
+ -Change to the following attributes:
+    -"train voyage ID" to "voyage ID" (everywhere)  
+    - "passgenger car ID" to "car ID"(everywhere)
+    - "ID" to "car ID" (in Car relation)
+    -"engine model name" and "engine type name" to "name" (in Engine relation)
+    -split departure date and time (in Voyage relation)////NOTE: we could use a TIMESTAMP  as their type and put them back together if you was 
+    -split arrival date ad time (in voyage relation)///SAME 
+    -"train route" or "train route ID" to "route ID" (everywhere)
+    -removed "station ID", it served the exact same purpose as "name" but was not used. 
+    -"start point" to "station of origine name" ( in Train Rout relation)
+    -"end point" to "terminal station name" ( in Train Rout relation)
