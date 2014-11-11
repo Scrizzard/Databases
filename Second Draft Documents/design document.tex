@@ -6,7 +6,7 @@
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 
-\title{Database Modeling System for a Passenger Train Network: Draft}
+\title{Database Modelling System for a Passenger Train Network: Draft}
 
 \author{Alex Keeling, Benjamin Weichman and Caroline Quinn}
 
@@ -84,7 +84,7 @@ Our model treats network of stations as a graph. Each station is a vertex, and e
 
 We considered describing a train route as an ordered set of stations. This design would allow us to cleanly and easily define a path. However, we would be unable to treat tracks as entities. It would require extra complexity to record whether a track section is under repairs and differentiate parallel going-to and coming-from tracks.
 
-We chose to instead create a track section entity defined by a start and endpoint station, and build our routes from these. By describing a route by edges instead of vertices, it became easier to constrain voyages to prevent trains from colliding or traversing out-of-service tracks. The downside is that we require a Track Section entity, increasing the size of our database. Given how much this entity reduces the logical complexity of our constraints, we believe this is a worthwhile tradeoff.
+We chose to instead create a track section entity defined by a start and endpoint station, and build our routes from these. By describing a route by edges instead of vertices, it became easier to constrain voyages to prevent trains from colliding or traversing out-of-service tracks. The downside is that we require a Track Section entity, increasing the size of our database. Given how much this entity reduces the logical complexity of our constraints, we believe this is a worthwhile trade-off.
 
 \subsection*{Train cars are directly related to their voyage, not their engine}
 Initially we were very concerned with coupling and decoupling train cars in order to attach them to different trains. We were bewildered by the complexity of car ordering, swapping and abandoning cars mid-voyage, etc. We realized that it was far simpler to discard the relationship between an engine and its cars, and simply have both be related to the same voyage.
@@ -213,7 +213,7 @@ Ticket Price :
 \begin{itemize}
 -(foreign key) voyage ID : integer
 -(foreign key) car ID : integer
--discout: price
+-discount: price
 -price : float 
 \end{itemize}
 Passenger Ticket:
@@ -222,7 +222,7 @@ Passenger Ticket:
 -(foreign key) passenger ID : integer
 -(foreign key) voyage ID : integer
 -(foreign key)car ID : integer
--dicsount : float
+-discount : float
 -seat number: integer
 \end{itemize}
 
