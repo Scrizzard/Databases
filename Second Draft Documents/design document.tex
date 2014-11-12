@@ -59,13 +59,11 @@ This view allows a senior member of the company to add, update, or delete things
 \section{Specifications and Assumptions}
 The railway system may be imagined as a graph, in which the stations are vertices and the tracks joining pairs of stations are edges. A train route describes a path in this graph.  A single route is composed of an ordered set of track sections with start and end station.
 
-A train is an engine pulling zero or more train cars. It is assumed that all trains will have exactly one engine pulling them. One engine is important in the design of the DBMS, as the engine along with date and time of a particular voyage are a train voyage’s unique identifier in the grand scheme of all train voyages.  (Isn’t a voyage’s unique identifier the Voyage ID?)
-
-A train may embark on a voyage. A voyage is a train travelling on a specific route departing at a specific date and time. Each train is manned by a staff that includes at minimum one qualified engineer. A specific staff will be assigned to each train voyage. It is assumed they will remain on the train for the duration of the voyage.  
+A train may embark on a voyage. A voyage is a train travelling on a specific route with a departure and arrival date and time. Each train is manned by a staff that includes at minimum one employee qualified to conduct the engine. A staff of employees will be assigned to each train voyage. It is assumed they will remain on the train for the duration of the voyage.  
 
 There are passenger, dining and baggage cars. There must be an appropriate number of baggage cars to house all the passengers’ belongings, as well as an appropriate number of dinning cars to feed all passengers. These quantities will be calculated based on the assumption that all passengers have luggage and will dine on board the train. 
 
-A passenger may own many tickets for different voyages. Each ticket represents a seat reserved on a specified passenger car embarking on a specific voyage. The ticket price is calculated as the product of the base voyage price, the cost of the selected traveling class, and any applicable ticket discounts. 
+A passenger may own many tickets for multiple voyages. Each ticket represents a seat reserved on a specified passenger car embarking on a specific voyage. The ticket price is calculated as the product of the base voyage price, the cost of the selected travelling class, and any applicable ticket discounts. 
 
 
 \section{Design Choices}
@@ -75,7 +73,7 @@ In early design stages, we had planned to create a unique route for each voyage.
 Rather than having each voyage follow a unique route, we then chose to have voyages travel along set routes instead. We rationalized that most passenger trains follow daily or weekly schedules, so the added flexibility of unique routes was unnecessary. This saves us from an enormous amount of duplication. Routes may be re-used, rather than created anew for each voyage.
 
 \subsection*{Tickets link passengers to passenger cars}
-Initially we intended to have passenger cars and passengers relate directly to one another. This seemed to make sense, since there is a direct physical relationship between passengers and their train car seats. However, we decided that it would be simpler to make the ticket serve as the intermediate between the passenger and the voyage/car information.
+Initially we intended to have passenger cars and passengers relate directly to one another. This seemed to make sense, since there is a direct physical relationship between passengers and their train car seats. However, we decided that it would be simpler to make the ticket serve as the intermediary between the passenger and the voyage/car information.
 
 This design choice allowed us to separate our concerns. A Person entity is concerned with information about that person, and a Ticket entity is concerned with the specifics of a voyage. This actually models better than our former design. A person doesn’t need to commit their seat ticket, train number and departure time to memory—they just look at their ticket.
 
@@ -127,7 +125,7 @@ An engine type’s date of invention may not be later than the current date. Our
 A voyage’s time of arrival may not be before its time of departure. Again, our model does not account for time-travelling trains.
 
 \subsection*{Trains do not collide at their outset}
-No two voyages starting at the same time may begin in the same direction on the same track segment. Note that our model does not handle train collisions after the initial segment—it is assumed that synchronization and mutual exclusion is handled by another system.
+No two voyages starting at the same time may begin in the same direction on the same track segment. Note that our model does not handle train collisions after the initial segment—it is assumed that synchronization and mutual exclusion of track use is handled by another system.
 
 \subsection*{All active trains and cars are in service}
 No train or car currently on a voyage may be out of service, and no voyage may depart if any of its constituent cars or engine are out of service.
@@ -160,7 +158,7 @@ Another option is to create a “current station” attribute on each car and en
 
 \subsection*{Staff are not required to operate dining cars or baggage cars.}
 	Rather than attempting to calculate staff size based on the number of dining and baggage cars, we assume that in the worst case all dining cars are self-serve and all baggage cars are coin-operated.
-    
+	
 \subsection*{Engine power is described by car limit, not weight limit.}
 If we wished to limit train size by weight, we would require that all train cars include a weight attribute that would functionally determine the amount of passengers and cargo on that car. This would add too much complexity.
 
@@ -172,6 +170,9 @@ If we wished to limit train size by weight, we would require that all train cars
     
 \subsection*{There are no staff cars, fuel cars, supply cars, etc.}
 It is assumed all supplies and space required for the staff will be present on the passenger, dinning, luggage cars and the engine. Fuel is too complex to consider, as the amount of space required for fuel would depend on the voyage length and the engine fuel type. 
+
+\subsection*{There is no upper limit for staff on a voyage.}
+We have not constrained the maximum number of employees that may ride on a given voyage. This means that our model might permit a thousand employees to ride on a train with a single passenger car. We permit this because it is an extremely unrealistic scenario that our client has no reason to consider.
 
 \subsection*{Route distance and travel times are assigned, not calculated.}
 This means that nothing prevents two otherwise identical routes from claiming to be of different lengths. This would be nonsensical. We may attempt to rectify this later by adding a distance attribute to a Track Segment that would be used to calculate route distances.
@@ -318,8 +319,8 @@ The Engine relation contains information about a single engine, including its ID
 -(primary key) name : string
 -fuel type : string
 -year of invention : integer
--inventor (optional) : string
--country of origin (optional) : string
+-inventor : string
+-country of origin : string
 -maximum cars pulled : integer
 \end{itemize}
 The Engine Type relation contains information about different models of engines. It contains an engine type ID, the type of fuel this model uses, the year the model was invented, the inventor's name, the country of origin, and the maximum name of cars this model can pull.
@@ -344,8 +345,8 @@ The Voyage relation refers to specific Train Voyages (or "runs") along existing 
 \subsection*{Train Station}
 \begin{itemize}
 -(primary key) name : string
--latitude (optional) : string
--longitude (optional) : string
+-latitude : string
+-longitude : string
 -address : string
 \end{itemize}
 \subsubsection*{Functional Dependency}
