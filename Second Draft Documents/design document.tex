@@ -7,7 +7,7 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{indentfirst}
 
-\title{Database Modelling System for a Passenger Train Network: Draft}
+\title{Database Modelling System for a Passenger Train Network}
 
 \author{Alex Keeling, Benjamin Weichman and Caroline Quinn}
 
@@ -51,7 +51,7 @@ This view allows an employee to see their work schedule for the upcoming voyages
 This view allows a manager to schedule staff for particular voyages. This means that the manager can see the voyages, the Cars and Engine assigned to the voyage, as well as the Engine Type. Of course, the manager can also create, update and delete Employees and Employee/Voyage schedule information.
 
 \subsection*{Manager (Train Scheduler)}
-This view allows a manager to schedule specific voyages, or "runs", of routes. This means that the manager can create, update and delete Train Voyages.
+This view allows a manager to schedule specific voyages, or ``runs", of routes. This means that the manager can create, update and delete Train Voyages.
 
 \subsection*{Head Office}
 This view allows a senior member of the company to add, update, or delete things that rarely change. This includes the Train Routes, Track Sections, and Train Stations. It also includes Engines, Engine Type, all types of Cars (Passenger, Dining, and Baggage).
@@ -152,7 +152,7 @@ The coupling order is only important if we actually intend to couple or decouple
 \subsection*{Engines and cars may teleport between stations in between voyages.}
 This is a large break from reality that we may mend at a later stage. We are considering two possible solutions. Either we establish a constraint stating that a car may only embark on a voyage if that voyage’s starting station is identical to the terminal station of that car’s most recent voyage. The upside of this solution is that this does not require that we modify our relation schema. The downside is that we need to perform a query whenever we want to find a car’s current location. Also, it is unclear how we would establish a newly-created car’s location.
 
-Another option is to create a “current station” attribute on each car and engine. This solution is more explicit and sensible than the former, but it would require that we automatically update a car’s location at the end of each voyage. 
+Another option is to create a ``current station" attribute on each car and engine. This solution is more explicit and sensible than the former, but it would require that we automatically update a car’s location at the end of each voyage. 
 
 \subsection*{There are cases where collisions may occur.}
 	We assume that all tracks are one-way, so head-on collisions are not feasible. However, there is nothing to prevent two trains from attempting to merge onto the same track at the same time. We cannot prevent these cases without predicting them, and our database does not store enough information to calculate train locations at a given point in time.
@@ -345,7 +345,7 @@ The Engine Type relation contains information about different models of engines.
 \item voyage ID $\rightarrow$ arrival date and time 
 \item voyage ID $\rightarrow$ train route
 \end{itemize}
-The Voyage relation refers to specific Train Voyages (or "runs") along existing routes. It contains a voyage ID, a starting date \& time, a reference to the engine ID of the engine which will be on this voyage, and a reference to the route in the route relation the train will follow.
+The Voyage relation refers to specific Train Voyages (or ``runs") along existing routes. It contains a voyage ID, a starting date \& time, a reference to the engine ID of the engine which will be on this voyage, and a reference to the route in the route relation the train will follow.
 
 \subsection*{Train Station}
 \begin{itemize}
@@ -444,8 +444,8 @@ The Engine Type/Employee Pairs relation simply stores foreign keys from both the
 
 
 \section{Change Log}
-\subsection*{"isa" Decomposition Decision}
-The "isa" relationships between Car and its sub-entites were decomposed into their relational equivalent using the object-oriented approach.
+\subsection*{``isa" Decomposition Decision}
+The ``isa" relationships between Car and its sub-entites were decomposed into their relational equivalent using the object-oriented approach.
 
 We rejected the notion of combining the entities into one relation with the null values approach because we wanted to easily distinguish among the different car types. We rejected the E/R style approach of splitting one entity tuple across multiple relations because it seemed vulnerable to update anomalies, and we would rather not perform a join every time we needed to examine a car.
 
@@ -459,9 +459,9 @@ The object-oriented approach has none of these weaknesses, and will require only
 
 \item The departure and arrival time for a voyage were each broken into separate date and time attributes.
 
-\item The missing relationship, "Employee conducts Engine", was added to the E/R diagram.
+\item The missing relationship, ``Employee conducts Engine", was added to the E/R diagram.
 
-\item A new "Necessary Evils" entry was added to address that lack of an upper limit for employees serving as staff on a voyage.
+\item A new ``Necessary Evils" entry was added to address that lack of an upper limit for employees serving as staff on a voyage.
 
 \item Minor grammatical and formatting changes were made throughout our draft.
 \end{itemize}
