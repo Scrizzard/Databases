@@ -198,6 +198,7 @@ Some real-life trains do have two engines. We chose to disallow these to save us
 \item seat number: integer
 \end{itemize}
 
+
 \subsubsection*{Functional Dependencies}
 \begin{itemize}
 \item Ticket ID $\rightarrow$ passenger ID
@@ -218,6 +219,7 @@ Ticket Price :
 \item discount: price
 \item price : float 
 \end{itemize}
+
 Passenger Ticket:
 \begin{itemize}
 \item (primary key) ticket ID : integer
@@ -235,7 +237,8 @@ The Ticket relation represents the information required to connect a passenger w
 \item (foreign key) ticket ID : integer
 \item (foreign key) passenger ID : integer
 \end{itemize}
-	
+The Ticket/Passenger Pair relation links tickets to their owners.
+
 \subsection*{Car/Voyage Pair}
 \begin{itemize}
 \item (foreign key) voyage ID : integer
@@ -248,6 +251,7 @@ The Car/Voyage Pair relation simply stores foreign keys from both the Car and Vo
 \item (foreign key) voyage ID : integer
 \item (foreign key) engine ID : integer
 \end{itemize}
+The Engine/Voyage Pair relation links an engine to its assigned voyages.
 
 \subsection*{Employee/Voyage Pair}
 \begin{itemize}
