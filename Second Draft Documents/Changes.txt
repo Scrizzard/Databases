@@ -13,3 +13,23 @@ Changed to the Relations Section:
     -"start point" to "station of origin name" (in Train Route relation)
     -"end point" to "terminal station name" (in Train Route relation)
 
+	
+Change Log:
+	
+	The "isa" relationships between Car and its sub-entites were decomposed into their relational equivalent using the object-oriented approach. We rejected the notion of combining the entities into one relation with the null values approach because we wanted to easily distinguish among the different car types. We rejected the E/R style approach of splitting one entity tuple across multiple relations because it seemed vulnerable to update anomalies, and we would rather not perform a join every time we needed to examine a car. The object-oriented approach has none of these weaknesses, and will require only three relations in our decomposition.
+	
+	
+	The two relations resulting from the decomposition of the Ticket relation were added to our relation list and given appropriate names (Ticket Price, Passenger Ticket).
+	
+	Attribute names were altered and made consistent between the E/R diagram and the relation/attribute list.
+	
+	The departure and arrival time for a voyage were each broken into separate date and time attributes.
+	
+	The missing relationship, "Employee conducts Engine", was added to the E/R diagram.
+	
+	A new "Necessary Evils" entry was added to address that lack of an upper limit for employees serving as staff on a voyage.
+	
+	Minor grammatical and formatting changes were made throughout our draft.
+	
+	
+	

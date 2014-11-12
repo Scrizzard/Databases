@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{indentfirst}
 
 \title{Database Modelling System for a Passenger Train Network: Draft}
 
@@ -212,62 +213,62 @@ Violating FD: train voyage ID, passenger car ID, discount $\rightarrow$ price\\
 Result:\\
 Ticket Price :
 \begin{itemize}
--(foreign key) voyage ID : integer
--(foreign key) car ID : integer
--discount: price
--price : float 
+\item (foreign key) voyage ID : integer
+\item (foreign key) car ID : integer
+\item discount: price
+\item price : float 
 \end{itemize}
 Passenger Ticket:
 \begin{itemize}
--(primary key) ticket ID : integer
--(foreign key) passenger ID : integer
--(foreign key) voyage ID : integer
--(foreign key)car ID : integer
--discount : float
--seat number: integer
+\item (primary key) ticket ID : integer
+\item (foreign key) passenger ID : integer
+\item (foreign key) voyage ID : integer
+\item (foreign key)car ID : integer
+\item discount : float
+\item seat number: integer
 \end{itemize}
 
 The Ticket relation represents the information required to connect a passenger with a seat on a particular voyage. It includes its own Ticket ID, a foreign key to the Passenger relation, the Voyage relation, and the Passenger Car relation. These foreign keys allow the ticket to connect the specific passenger with the specific voyage along a route, in a particular car on that voyage. The Ticket relation also includes a price attribute which is calculated at the time of purchase, and a specific seat number.
 
 \subsection*{Ticket/Passenger Pair}
 \begin{itemize}
--(foreign key) ticket ID : integer
--(foreign key) passenger ID : integer
+\item (foreign key) ticket ID : integer
+\item (foreign key) passenger ID : integer
 \end{itemize}
 	
 \subsection*{Car/Voyage Pair}
 \begin{itemize}
--(foreign key) voyage ID : integer
--(foreign key) car ID : integer
+\item (foreign key) voyage ID : integer
+\item (foreign key) car ID : integer
 \end{itemize}
 The Car/Voyage Pair relation simply stores foreign keys from both the Car and Voyage relations. It connects a particular train car and a particular voyage.
 
 \subsection*{Engine/Voyage Pair}
 \begin{itemize}
--(foreign key) voyage ID : integer
--(foreign key) engine ID : integer
+\item (foreign key) voyage ID : integer
+\item (foreign key) engine ID : integer
 \end{itemize}
 
 \subsection*{Employee/Voyage Pair}
 \begin{itemize}
--(foreign key) voyage ID : integer
--(foreign key) employee ID : integer
+\item (foreign key) voyage ID : integer
+\item (foreign key) employee ID : integer
 \end{itemize}
 The Employee/Voyage Pair relation simply stores foreign keys from both the Employee and Voyage relations. It connects a particular employee and a particular voyage.
 
 \subsection*{Car}
 \begin{itemize}
--(primary key) car ID : integer
--in service state : boolean
+\item (primary key) car ID : integer
+\item in service state : boolean
 \end{itemize}
 The Car relation is the super relation for all types of train cars. Thus, it contains the things that all train car types have in common: a Car ID, and an in service indicator.
 
 \subsection*{Passenger Car}
 \begin{itemize}
--(primary key) car ID : integer
--in service state : boolean
--number of seats : integer
--class : float (cost multiplier)
+\item (primary key) car ID : integer
+\item in service state : boolean
+\item number of seats : integer
+\item class : float (cost multiplier)
 \end{itemize}
 \subsubsection*{Functional Dependencies}
 \begin{itemize}
@@ -278,9 +279,9 @@ The Passenger Car relation is a sub-relation of the Car relation. It contains th
 
 \subsection*{Baggage Car}
 \begin{itemize}
--(primary key) car ID : integer
--in service state : boolean
--baggage capacity  : integer
+\item (primary key) car ID : integer
+\item in service state : boolean
+\item baggage capacity  : integer
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -290,9 +291,9 @@ The Baggage Car relation is a sub-relation of the Car relation. It contains the 
 
 \subsection*{Dining Car}
 \begin{itemize}
--(primary key) car ID : integer
--in service state : boolean
--passenger limit : integer
+\item (primary key) car ID : integer
+\item in service state : boolean
+\item passenger limit : integer
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -302,10 +303,10 @@ The Dining Car relation is a sub-relation of the Car relation. It contains the n
 
 \subsection*{Engine}
 \begin{itemize}
--(primary key) engine ID : integer
--year of construction : integer
--(foreign key) name : string
--in service state : boolean
+\item (primary key) engine ID : integer
+\item year of construction : integer
+\item (foreign key) name : string
+\item in service state : boolean
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -316,23 +317,23 @@ The Engine relation contains information about a single engine, including its ID
 
 \subsection*{Engine Type}
 \begin{itemize}
--(primary key) name : string
--fuel type : string
--year of invention : integer
--inventor : string
--country of origin : string
--maximum cars pulled : integer
+\item (primary key) name : string
+\item fuel type : string
+\item year of invention : integer
+\item inventor : string
+\item country of origin : string
+\item maximum cars pulled : integer
 \end{itemize}
 The Engine Type relation contains information about different models of engines. It contains an engine type ID, the type of fuel this model uses, the year the model was invented, the inventor's name, the country of origin, and the maximum name of cars this model can pull.
 
 \subsection*{Voyage}
 \begin{itemize}
--(primary key) voyage ID : integer
--departure date : date
--departure time : time
--arrival date : date
--arrival time : time
--(foreign key) route ID : integer
+\item (primary key) voyage ID : integer
+\item departure date : date
+\item departure time : time
+\item arrival date : date
+\item arrival time : time
+\item (foreign key) route ID : integer
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -344,10 +345,10 @@ The Voyage relation refers to specific Train Voyages (or "runs") along existing 
 
 \subsection*{Train Station}
 \begin{itemize}
--(primary key) name : string
--latitude : string
--longitude : string
--address : string
+\item (primary key) name : string
+\item latitude : string
+\item longitude : string
+\item address : string
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -358,10 +359,10 @@ The Train Station relation stores each train station. It contains a station ID, 
 
 \subsection*{Track Section}
 \begin{itemize}
--(primary key) section ID : integer
--(foreign key) station of origin name : string
--(foreign key) terminal station name : string
--in service state: boolean
+\item (primary key) section ID : integer
+\item (foreign key) station of origin name : string
+\item (foreign key) terminal station name : string
+\item in service state: boolean
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -372,12 +373,12 @@ The Track Section relations represents a set of tracks running in a particular d
 
 \subsection*{Train Route}
 \begin{itemize}
--(primary key) route ID : integer
--station of origin name : string
--terminal station name : string
--distance : float
--base cost : float
--travel time : integer 
+\item (primary key) route ID : integer
+\item station of origin name : string
+\item terminal station name : string
+\item distance : float
+\item base cost : float
+\item travel time : integer 
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -390,21 +391,21 @@ The Train Route relation represents an established route that a train might foll
 
 \subsection*{Section/Route}
 \begin{itemize}
--(foreign key) Track Section ID : integer
--(foreign key) route ID : integer
--order of visitation  : integer
+\item (foreign key) Track Section ID : integer
+\item (foreign key) route ID : integer
+\item order of visitation  : integer
 \end{itemize}
 The Section/Route relation represents all the discrete sections of track between stations that add together to create an entire route. It contains a reference to the route it's a part of, as well as a reference the section of track, and an integer indicating the order of visitation (n is the nth section of track for a given route).
 
 \subsection*{Passenger}
 \begin{itemize}
--(primary key) passport number : string
--(primary key) passenger ID : integer
--name : string
--nationality : string
--address : string
--phone : string
--payment type : string
+\item (primary key) passport number : string
+\item (primary key) passenger ID : integer
+\item name : string
+\item nationality : string
+\item address : string
+\item phone : string
+\item payment type : string
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -417,10 +418,10 @@ The Passenger relation represents an actual customer. It contains a passenger ID
 
 \subsection*{Employee}
 \begin{itemize}
--(primary key) employee ID : integer
--name : string
--title : string
--years of employment : integer
+\item (primary key) employee ID : integer
+\item name : string 
+\item title : string
+\item years of employment : integer
 \end{itemize}
 \subsubsection*{Functional Dependency}
 \begin{itemize}
@@ -432,13 +433,34 @@ A tuple in the Employee relation represents an employee. The relation contains a
 
 \subsection*{Engine Type/Employee Pairs}
 \begin{itemize}
--(foreign key) employee ID : integer
--(foreign key) name : string
+\item (foreign key) employee ID : integer
+\item (foreign key) name : string
 \end{itemize}
 The Engine Type/Employee Pairs relation simply stores foreign keys from both the Engine Type and Employee relations. It connects a particular employee and a particular engine type, to indicate that this employee is qualified to operate this type of engine.
 
 
+\section{Change Log}
+\subsection*{"isa" Decomposition Decision}
+The "isa" relationships between Car and its sub-entites were decomposed into their relational equivalent using the object-oriented approach.
 
+We rejected the notion of combining the entities into one relation with the null values approach because we wanted to easily distinguish among the different car types. We rejected the E/R style approach of splitting one entity tuple across multiple relations because it seemed vulnerable to update anomalies, and we would rather not perform a join every time we needed to examine a car.
+
+The object-oriented approach has none of these weaknesses, and will require only three relations in our decomposition.\\
+	
+\subsection*{Miscellaneous Changes}
+\begin{itemize}
+\item The two relations resulting from the decomposition of the Ticket relation were added to our relation list and given appropriate names (Ticket Price, Passenger Ticket).
+    
+\item Attribute names were altered and made consistent between the E/R diagram and the relation/attribute list.
+
+\item The departure and arrival time for a voyage were each broken into separate date and time attributes.
+
+\item The missing relationship, "Employee conducts Engine", was added to the E/R diagram.
+
+\item A new "Necessary Evils" entry was added to address that lack of an upper limit for employees serving as staff on a voyage.
+
+\item Minor grammatical and formatting changes were made throughout our draft.
+\end{itemize}
 
 
 \end{document}
