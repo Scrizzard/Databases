@@ -189,13 +189,13 @@ DROP TABLE IF EXISTS Passenger;
 
 CREATE TABLE Passenger (
 	passportNumber varchar(255),
-	passengerID int NOT NULL AUTO_INCREMENT,
+	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255),
 	nationality varchar(255),
 	address varchar(255),
 	phoneNumber varchar(255),
 	paymentType varchar(255),	
-	PRIMARY KEY (passengerID)
+	PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS Employee;
