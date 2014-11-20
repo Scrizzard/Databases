@@ -1,7 +1,7 @@
 CREATE DATABASE TMS;
 
 USE TMS;
-
+SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS TicketPrice;
 
@@ -98,38 +98,36 @@ CREATE TABLE BaggageCar (
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-DROP TABLE IF EXISTS DinningCar;
+DROP TABLE IF EXISTS DiningCar;
 
-CREATE TABLE DinningCar (
+CREATE TABLE DiningCar (
 	carID int NOT NULL,
 	inServiceState boolean,
 	passengerLimit int, 
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-DROP TABLE IF EXISTS Engine;
-
-CREATE TABLE Engine (
-	engineID int NOT NULL AUTO_INCREMENT,
-	name varchar(255),
+CREATE TABLE IF NOT EXISTS Engine (
+	id int NOT NULL AUTO_INCREMENT,
 	yearOfConstruction int,
 	inServiceState boolean,
-	FOREIGN KEY (name) REFERENCES EngineType(name),
-	PRIMARY KEY (engineID)
+    name varchar(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (name) 
+        REFERENCES Engine(name)
+	
 );
 
-DROP TABLE IF EXISTS EngineType;
-
-CREATE TABLE EngineType (
-	id int NOT NULL AUTO_INCREMENT,
-	name varchar(255),
+CREATE TABLE IF NOT EXISTS EngineType (
 	fuelType varchar(255),
 	yearOfInvention int,
 	inventor varchar(255),
 	countryOfOrigin varchar(255),
 	maxCarPull int,
-	PRIMARY KEY (id)
+    name varchar(255),
+	PRIMARY KEY (name)
 );
+
 
 DROP TABLE IF EXISTS Voyage;
 
@@ -216,6 +214,8 @@ CREATE TABLE EmployeeEnginePair (
 	FOREIGN KEY (name) REFERENCES EngineType(name),
 	FOREIGN KEY (employeeID) REFERENCES Employee(employeeID)
 );
+
+SET FOREIGN_KEY_CHECKS=1;
 ################################################################
 DROP TABLE IF EXISTS states;
 
