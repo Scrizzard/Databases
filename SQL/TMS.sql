@@ -131,7 +131,36 @@ CREATE TABLE 'EngineType'(
 	PRIMARY KEY name
 );
 
+DROP TABLE IF EXISTS 'Voyage';
 
+CREATE TABLE 'Voyage'(
+	voyageID int NOT NULL,
+	departureDate date,
+	departueTime time,
+	arrivalDate date,
+	arrivalTime time,
+	PRIMARY KEY voyageID
+);
+
+DROP TABLE IF EXISTS 'TrainStation';
+
+CREATE TABLE 'TrainStation'(
+	name String NOT NULL,
+	latitude String,
+	longitude String,
+	address String,
+	PRIMARY KEY name
+);
+
+DROP TABLE IF EXISTS 'TrackSection';
+
+CREATE TABLE 'TrackSection'(
+	sectionID int NOT NULL,
+	stationOfOrigin String,
+	terminalStation String,
+	inServiceState boolean,
+	PRIMARY KEY sectionID
+);
 ################################################################
 DROP TABLE IF EXISTS 'states';
 
