@@ -207,6 +207,15 @@ CREATE TABLE 'Employee'(
 	yearsOfEmployment int,
 	PRIMARY KEY employeeID
 );
+
+DROP TABLE IF EXISTS 'EmployeeEnginePair';
+
+CREATE TABLE 'EmployeeEnginePair'(
+	employeeID int,
+	name String,
+	FOREIGN KEY (name) REFRENCES EngineType(name),
+	FOREIGN KEY (employeeID) REFRENCES Employee(employeeID)
+);
 ################################################################
 DROP TABLE IF EXISTS 'states';
 
