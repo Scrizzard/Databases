@@ -76,7 +76,7 @@ DROP TABLE IF EXISTS Car;
 CREATE TABLE Car (
 	id int NOT NULL AUTO_INCREMENT,
 	inService boolean,
-	PRIMARY KEY id
+	PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS PassengerCar;
@@ -115,7 +115,7 @@ CREATE TABLE Engine (
 	yearOfConstruction int,
 	inServiceState boolean,
 	FOREIGN KEY (name) REFERENCES EngineType(name),
-	PRIMARY KEY engineID
+	PRIMARY KEY (engineID)
 );
 
 DROP TABLE IF EXISTS EngineType;
@@ -128,18 +128,18 @@ CREATE TABLE EngineType (
 	inventor varchar(255),
 	countryOfOrigin varchar(255),
 	maxCarPull int,
-	PRIMARY KEY id
+	PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS Voyage;
 
 CREATE TABLE Voyage (
-	voyageID int NOT NULL,
+	id int NOT NULL,
 	departureDate date,
 	departueTime time,
 	arrivalDate date,
 	arrivalTime time,
-	PRIMARY KEY voyageID
+	PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS TrainStation;
@@ -150,7 +150,7 @@ CREATE TABLE TrainStation (
 	latitude varchar(255),
 	longitude varchar(255),
 	address varchar(255),
-	PRIMARY KEY name
+	PRIMARY KEY (name)
 );
 
 DROP TABLE IF EXISTS TrackSection;
@@ -160,7 +160,7 @@ CREATE TABLE TrackSection (
 	stationOfOrigin varchar(255),
 	terminalStation varchar(255),
 	inServiceState boolean,
-	PRIMARY KEY sectionID
+	PRIMARY KEY (sectionID)
 );
 
 DROP TABLE IF EXISTS TrainRoute;
@@ -172,7 +172,7 @@ CREATE TABLE TrainRoute (
 	distance float,
 	cost float,
 	travelTime int,
-	PRIMARY KEY routeID
+	PRIMARY KEY (routeID)
 );
 
 DROP TABLE IF EXISTS SectionRoute;
@@ -195,7 +195,7 @@ CREATE TABLE Passenger (
 	address varchar(255),
 	phoneNumber varchar(255),
 	paymentType varchar(255),	
-	PRIMARY KEY passengerID
+	PRIMARY KEY (passengerID)
 );
 
 DROP TABLE IF EXISTS Employee;
@@ -205,7 +205,7 @@ CREATE TABLE Employee (
 	name varchar(255),
 	title varchar(255),
 	yearsOfEmployment int,
-	PRIMARY KEY employeeID
+	PRIMARY KEY (employeeID)
 );
 
 DROP TABLE IF EXISTS EmployeeEnginePair;
