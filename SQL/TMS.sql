@@ -108,6 +108,30 @@ CREATE TABLE 'DinningCar'(
 	FOREIGN KEY (carID) REFRENCES Car(id)
 );
 
+DROP TABLE IF EXISTS 'Engine';
+
+CREATE TABLE 'Engine'(
+	engineID String NOT NULL,
+	name String NOT NULL,
+	yearOfConstruction int,
+	inServiceState boolean,
+	FOREIGN KEY (name) REFRENCES EngineType(name),
+	PRIMARY KEY engineID
+);
+
+DROP TABLE IF EXISTS 'EngineType';
+
+CREATE TABLE 'EngineType'(
+	name String NOT NULL,
+	fuelType String,
+	yearOfInvention int,
+	inventor String,
+	countryOfOrigin String,
+	maxCarPull int,
+	PRIMARY KEY name
+);
+
+
 ################################################################
 DROP TABLE IF EXISTS 'states';
 
