@@ -1,11 +1,8 @@
-CREATE DATABASE TMS;
-
+CREATE DATABASE IF NOT EXISTS TMS;
 USE TMS;
 SET FOREIGN_KEY_CHECKS=0;
 
-DROP TABLE IF EXISTS TicketPrice;
-
-CREATE TABLE TicketPrice (
+CREATE TABLE IF NOT EXISTS TicketPrice (
 	voyageID int NOT NULL,
 	carID int NOT NULL,
 	discount float(9,2) DEFAULT 0.00,
@@ -14,10 +11,7 @@ CREATE TABLE TicketPrice (
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-
-DROP TABLE IF EXISTS PassengerTicket;
-
-CREATE TABLE PassengerTicket (
+CREATE TABLE IF NOT EXISTS PassengerTicket (
 	id int NOT NULL AUTO_INCREMENT,
 	passengerID int NOT NULL,
 	voyageID int NOT NULL,
@@ -30,58 +24,41 @@ CREATE TABLE PassengerTicket (
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-
-DROP TABLE IF EXISTS TicketPassengerPair;
-
-CREATE TABLE TicketPassengerPair (
+CREATE TABLE IF NOT EXISTS TicketPassengerPair (
 	ticketID int NOT NULL,
 	passengerID int NOT NULL,
 	FOREIGN KEY (passengerID) REFERENCES Passenger(id),
 	FOREIGN KEY (ticketID) REFERENCES PassengerTicket(id)
 );
 
-
-DROP TABLE IF EXISTS CarVoyagePair;
-
-CREATE TABLE CarVoyagePair (
+CREATE TABLE IF NOT EXISTS CarVoyagePair (
 	voyageID int NOT NULL,
 	carID int NOT NULL,
 	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-
-DROP TABLE IF EXISTS EngineVoyagePair;
-
-CREATE TABLE EngineVoyagePair (
+CREATE TABLE IF NOT EXISTS EngineVoyagePair (
 	voyageID int NOT NULL,
 	engineID int NOT NULL,
 	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
 	FOREIGN KEY (engineID) REFERENCES Engine(id)
 );
 
-
-DROP TABLE IF EXISTS EmployeeVoyagePair;
-
-CREATE TABLE EmployeeVoyagePair (
+CREATE TABLE IF NOT EXISTS EmployeeVoyagePair (
 	voyageID int NOT NULL,
 	employeeID int NOT NULL,
 	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
 	FOREIGN KEY (employeeID) REFERENCES Employee(id)
 );
 
-
-DROP TABLE IF EXISTS Car;
-
-CREATE TABLE Car (
+CREATE TABLE IF NOT EXISTS Car (
 	id int NOT NULL AUTO_INCREMENT,
 	inService boolean,
 	PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS PassengerCar;
-
-CREATE TABLE PassengerCar (
+CREATE TABLE IF NOT EXISTS PassengerCar (
 	carID int NOT NULL,
 	inServiceState boolean,
 	numberofSeats int, 
@@ -89,25 +66,22 @@ CREATE TABLE PassengerCar (
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-DROP TABLE IF EXISTS BaggageCar;
-
-CREATE TABLE BaggageCar (
+CREATE TABLE IF NOT EXISTS BaggageCar (
 	carID int NOT NULL,
 	inServiceState boolean,
 	baggageCapacity int,
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-DROP TABLE IF EXISTS DiningCar;
-
-CREATE TABLE DiningCar (
+CREATE TABLE IF NOT EXISTS DiningCar (
 	carID int NOT NULL,
 	inServiceState boolean,
 	passengerLimit int, 
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-CREATE TABLE IF NOT EXISTS Engine (
+CREATE TABLE IF NOT EXISTS Engine (firefox
+
 	id int NOT NULL AUTO_INCREMENT,
 	yearOfConstruction int,
 	inServiceState boolean,
@@ -128,10 +102,7 @@ CREATE TABLE IF NOT EXISTS EngineType (
 	PRIMARY KEY (name)
 );
 
-
-DROP TABLE IF EXISTS Voyage;
-
-CREATE TABLE Voyage (
+CREATE TABLE IF NOT EXISTS Voyage (
 	id int NOT NULL,
 	departureDate date,
 	departueTime time,
@@ -140,9 +111,7 @@ CREATE TABLE Voyage (
 	PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS TrainStation;
-
-CREATE TABLE TrainStation (
+CREATE TABLE IF NOT EXISTS TrainStation (
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255),
 	latitude varchar(255),
@@ -151,9 +120,7 @@ CREATE TABLE TrainStation (
 	PRIMARY KEY (name)
 );
 
-DROP TABLE IF EXISTS TrackSection;
-
-CREATE TABLE TrackSection (
+CREATE TABLE IF NOT EXISTS TrackSection (
 	sectionID int NOT NULL,
 	stationOfOrigin varchar(255),
 	terminalStation varchar(255),
@@ -161,9 +128,7 @@ CREATE TABLE TrackSection (
 	PRIMARY KEY (sectionID)
 );
 
-DROP TABLE IF EXISTS TrainRoute;
-
-CREATE TABLE TrainRoute (
+CREATE TABLE IF NOT EXISTS TrainRoute (
 	routeID int NOT NULL,
 	stationOfOrigin varchar(255),
 	terminalStation varchar(255),
@@ -173,9 +138,7 @@ CREATE TABLE TrainRoute (
 	PRIMARY KEY (routeID)
 );
 
-DROP TABLE IF EXISTS SectionRoute;
-
-CREATE TABLE SectionRoute (
+CREATE TABLE IF NOT EXISTS SectionRoute (
 	trackSectionID int,
 	routeID int,
 	orderOfVisitation int,
@@ -183,9 +146,7 @@ CREATE TABLE SectionRoute (
 	FOREIGN KEY (routeID) REFERENCES TrainRoute(routeID)
 );
 
-DROP TABLE IF EXISTS Passenger;
-
-CREATE TABLE Passenger (
+CREATE TABLE IF NOT EXISTS Passenger (
 	passportNumber varchar(255),
 	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255),
@@ -196,9 +157,7 @@ CREATE TABLE Passenger (
 	PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS Employee;
-
-CREATE TABLE Employee (
+CREATE TABLE IF NOT EXISTS Employee (
 	employeeID int NOT NULL AUTO_INCREMENT,
 	name varchar(255),
 	title varchar(255),
@@ -206,9 +165,7 @@ CREATE TABLE Employee (
 	PRIMARY KEY (employeeID)
 );
 
-DROP TABLE IF EXISTS EmployeeEnginePair;
-
-CREATE TABLE EmployeeEnginePair (
+CREATE TABLE IF NOT EXISTS EmployeeEnginePair (
 	employeeID int,
 	name varchar(255),
 	FOREIGN KEY (name) REFERENCES EngineType(name),
@@ -217,9 +174,8 @@ CREATE TABLE EmployeeEnginePair (
 
 SET FOREIGN_KEY_CHECKS=1;
 ################################################################
-DROP TABLE IF EXISTS states;
 
-CREATE TABLE states (
+CREATE TABLE IF NOT EXISTS states (
   id int(11) NOT NULL AUTO_INCREMENT,
   state char(25) DEFAULT NULL,
   population int(9) DEFAULT NULL,
