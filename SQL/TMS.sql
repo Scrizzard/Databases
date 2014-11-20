@@ -76,10 +76,37 @@ DROP TABLE IF EXISTS 'Car';
 
 CREATE TABLE 'Car' (
 	id int NOT NULL AUTO_INCREMENT,
-	inService boolean
+	inService boolean,
 	PRIMARY KEY id
 );
 
+DROP TABLE IF EXISTS 'PassengerCar';
+
+CREATE TABLE 'PassengerCar'(
+	carID int NOT NULL,
+	inServiceState boolean,
+	numberofSeats int, 
+	class float NOT NULL,
+	FOREIGN KEY (carID) REFRENCES Car(id)
+);
+
+DROP TABLE IF EXISTS 'BaggageCar';
+
+CREATE TABLE 'BaggageCar'(
+	carID int NOT NULL,
+	inServiceState boolean,
+	baggageCapacity int,
+	FOREIGN KEY (carID) REFRENCES Car(id)
+);
+
+DROP TABLE IF EXISTS 'DinningCar';
+
+CREATE TABLE 'DinningCar'(
+	carID int NOT NULL,
+	inServiceState boolean,
+	passengerLimit int, 
+	FOREIGN KEY (carID) REFRENCES Car(id)
+);
 
 ################################################################
 DROP TABLE IF EXISTS 'states';
