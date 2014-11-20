@@ -161,6 +161,52 @@ CREATE TABLE 'TrackSection'(
 	inServiceState boolean,
 	PRIMARY KEY sectionID
 );
+
+DROP TABLE IF EXISTS 'TrainRoute';
+
+CREATE TABLE 'TrainRoute'(
+	routeID int NOT NULL,
+	stationOfOrigin String,
+	terminalStation String,
+	distance float,
+	cost float,
+	travelTime int,
+	PRIMARY KEY routeID
+);
+
+DROP TABLE IF EXISTS 'Section/Route';
+
+CREATE TABLE 'Section/Route'(
+	trackSectionID int,
+	routeID int,
+	orderOfVisitation int,
+	FOREIGN KEY (trackSectionID) REFRENCES TrackSection(trackSectionID),
+	FOREIGN KEY (routeID) REFRENCES TrainRoute(routeID)
+);
+
+DROP TABLE IF EXISTS 'Passenger';
+
+CREATE TABLE 'Passenger'(
+	passportNumber String,
+	passengerID int,
+	name String,
+	nationality String,
+	address String,
+	phoneNumber String,
+	paymentType String,
+	PRIMARY KEY passportNumber,
+	PRIMARY KEY passengerID
+);
+
+DROP TABLE IF EXISTS 'Employee';
+
+CREATE TABLE 'Employee'(
+	employeeID int,
+	name String,
+	title String,
+	yearsOfEmployment int,
+	PRIMARY KEY employeeID
+);
 ################################################################
 DROP TABLE IF EXISTS 'states';
 
