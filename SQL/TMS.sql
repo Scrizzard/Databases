@@ -126,6 +126,8 @@ CREATE TABLE IF NOT EXISTS TrackSection (
 	terminalStation varchar(255),
 	inServiceState boolean,
 	PRIMARY KEY (sectionID)
+	FOREIGN KEY (stationOfOrigin) REFRENCES TrainStation(id),
+	FOREIGN KEY (terminalStation)  REFRENCES TrainStation(id)
 );
 
 CREATE TABLE IF NOT EXISTS TrainRoute (
