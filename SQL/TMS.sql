@@ -90,8 +90,7 @@ CREATE TABLE IF NOT EXISTS EngineType (
 	PRIMARY KEY (name)
 );
 
-CREATE TABLE IF NOT EXISTS Engine (firefox
-
+CREATE TABLE IF NOT EXISTS Engine (
 	id int NOT NULL AUTO_INCREMENT,
 	yearOfConstruction int,
 	inServiceState boolean,
@@ -118,7 +117,7 @@ CREATE TABLE IF NOT EXISTS TrainStation (
 	latitude varchar(255),
 	longitude varchar(255),
 	address varchar(255),
-	PRIMARY KEY (name)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS TrackSection (
