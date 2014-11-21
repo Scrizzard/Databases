@@ -138,6 +138,8 @@ CREATE TABLE IF NOT EXISTS TrainRoute (
 	cost float,
 	travelTime int,
 	PRIMARY KEY (routeID)
+	FOREIGN KEY (stationOfOrigin) REFRENCES TrainStation(id),
+	FOREIGN KEY (terminalStation)  REFRENCES TrainStation(id)
 );
 
 CREATE TABLE IF NOT EXISTS SectionRoute (
