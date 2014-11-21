@@ -80,18 +80,6 @@ CREATE TABLE IF NOT EXISTS DiningCar (
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
-CREATE TABLE IF NOT EXISTS Engine (firefox
-
-	id int NOT NULL AUTO_INCREMENT,
-	yearOfConstruction int,
-	inServiceState boolean,
-    name varchar(255),
-    PRIMARY KEY (id),
-    FOREIGN KEY (name) 
-        REFERENCES Engine(name)
-	
-);
-
 CREATE TABLE IF NOT EXISTS EngineType (
 	fuelType varchar(255),
 	yearOfInvention int,
@@ -101,6 +89,19 @@ CREATE TABLE IF NOT EXISTS EngineType (
     name varchar(255),
 	PRIMARY KEY (name)
 );
+
+CREATE TABLE IF NOT EXISTS Engine (firefox
+
+	id int NOT NULL AUTO_INCREMENT,
+	yearOfConstruction int,
+	inServiceState boolean,
+    name varchar(255),
+    PRIMARY KEY (id),
+    FOREIGN KEY (name) 
+       REFERENCES EngineType(name)
+	
+);
+
 
 CREATE TABLE IF NOT EXISTS Voyage (
 	id int NOT NULL,
