@@ -4,7 +4,7 @@
 		
 			//connect to a DB (your DB name is probably not "fish")
 			mysql_connect("localhost", "root", "");
-			mysql_select_db("fish");
+			mysql_select_db("tms");
 		
 			$result = mysql_query($_POST["query"]);
 
