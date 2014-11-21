@@ -60,7 +60,6 @@ CREATE TABLE IF NOT EXISTS Car (
 
 CREATE TABLE IF NOT EXISTS PassengerCar (
 	carID int NOT NULL,
-	inServiceState boolean,
 	numberofSeats int, 
 	class float NOT NULL,
 	FOREIGN KEY (carID) REFERENCES Car(id)
@@ -68,14 +67,12 @@ CREATE TABLE IF NOT EXISTS PassengerCar (
 
 CREATE TABLE IF NOT EXISTS BaggageCar (
 	carID int NOT NULL,
-	inServiceState boolean,
 	baggageCapacity int,
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
 
 CREATE TABLE IF NOT EXISTS DiningCar (
 	carID int NOT NULL,
-	inServiceState boolean,
 	passengerLimit int, 
 	FOREIGN KEY (carID) REFERENCES Car(id)
 );
@@ -102,11 +99,14 @@ CREATE TABLE IF NOT EXISTS Engine (
 
 CREATE TABLE IF NOT EXISTS Voyage (
 	id int NOT NULL,
+	routeID int,
 	departureDate date,
 	departueTime time,
 	arrivalDate date,
 	arrivalTime time,
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
+	FOREIGN KEY (routeID)
+	REFERENCES TrainRoute(routeID)
 );
 
 CREATE TABLE IF NOT EXISTS TrainStation (
@@ -159,18 +159,18 @@ CREATE TABLE IF NOT EXISTS Passenger (
 );
 
 CREATE TABLE IF NOT EXISTS Employees (
-	employeeID int NOT NULL AUTO_INCREMENT,
+	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255),
 	title varchar(255),
 	yearsOfEmployment int,
-	PRIMARY KEY (employeeID)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS EmployeeEnginePair (
 	employeeID int,
 	name varchar(255),
 	FOREIGN KEY (name) REFERENCES EngineType(name),
-	FOREIGN KEY (employeeID) REFERENCES Employees(employeeID)
+	FOREIGN KEY (employeeID) REFERENCES Employees(id)
 );
 
 SET FOREIGN_KEY_CHECKS=1;
