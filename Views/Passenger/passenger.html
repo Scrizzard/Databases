@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is a Google hosted library for javascript called jQuery. Your computer must be online to fetch this library. -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="passenger.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="passenger.css">
+ 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+ 		
+		<title>User View</title>
+	</head>
+	
+	<body>
+		<p id="pageTitle">Train Management System: Passenger View</p>
+		<p id="description">This view allows a user to see upcoming voyages and voyages for which they own a ticket.</p>
+		
+		<div id="pageCenter">
+			
+			<div id="nameField">
+				<span id="directions">Please enter your name:</span>
+				<input id="nameInput" size="30"/>
+			</div>
+			
+			<button onclick="fetchTickets()">View Your Tickets</button>
+			<button onclick="fetchVoyages()">View All Voyages</button>
+			
+			<p id="resultHeader"></p>
+	
+			<table id="resultTable">
+				<thead id="resultTableHead"></thead>
+				<tbody id="resultTableBody"></tbody>
+			</table>
+			
+		</div>
+	</body>
+</html>
