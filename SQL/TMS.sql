@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS SectionRoute (
 	trackSectionID int,
 	routeID int,
 	orderOfVisitation int,
-	FOREIGN KEY (trackSectionID) REFERENCES TrackSection(trackSectionID),
+	FOREIGN KEY (trackSectionID) REFERENCES TrackSection(SectionID),
 	FOREIGN KEY (routeID) REFERENCES TrainRoute(routeID)
 );
 
