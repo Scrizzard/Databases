@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS EmployeeVoyagePair (
 	voyageID int NOT NULL,
 	employeeID int NOT NULL,
 	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
-	FOREIGN KEY (employeeID) REFERENCES Employee(id)
+	FOREIGN KEY (employeeID) REFERENCES Employees(id)
 );
 
 CREATE TABLE IF NOT EXISTS Car (
@@ -96,11 +96,9 @@ CREATE TABLE IF NOT EXISTS Engine (
 	inServiceState boolean,
     name varchar(255),
     PRIMARY KEY (id),
-    FOREIGN KEY (name) 
-       REFERENCES EngineType(name)
-	
+    FOREIGN KEY (name)
+    REFERENCES EngineType(name)
 );
-
 
 CREATE TABLE IF NOT EXISTS Voyage (
 	id int NOT NULL,
@@ -112,12 +110,11 @@ CREATE TABLE IF NOT EXISTS Voyage (
 );
 
 CREATE TABLE IF NOT EXISTS TrainStation (
-	id int NOT NULL AUTO_INCREMENT,
 	name varchar(255),
 	latitude varchar(255),
 	longitude varchar(255),
 	address varchar(255),
-	PRIMARY KEY (id)
+	PRIMARY KEY (name)
 );
 
 CREATE TABLE IF NOT EXISTS TrackSection (
@@ -125,9 +122,11 @@ CREATE TABLE IF NOT EXISTS TrackSection (
 	stationOfOrigin varchar(255),
 	terminalStation varchar(255),
 	inServiceState boolean,
-	PRIMARY KEY (sectionID)
-	FOREIGN KEY (stationOfOrigin) REFRENCES TrainStation(id),
-	FOREIGN KEY (terminalStation)  REFRENCES TrainStation(id)
+	PRIMARY KEY (sectionID),
+	FOREIGN KEY (stationOfOrigin)
+    REFERENCES TrainStation(name),
+	FOREIGN KEY (terminalStation)
+    REFERENCES TrainStation(name)
 );
 
 CREATE TABLE IF NOT EXISTS TrainRoute (
@@ -138,11 +137,9 @@ CREATE TABLE IF NOT EXISTS TrainRoute (
 	cost float,
 	travelTime int,
 	PRIMARY KEY (routeID)
-	FOREIGN KEY (stationOfOrigin) REFRENCES TrainStation(id),
-	FOREIGN KEY (terminalStation)  REFRENCES TrainStation(id)
 );
 
-CREATE TABLE IF NOT EXISTS SectionRoute (
+CREATE TABLE IF NOT EXISTS SectionRoute ( 
 	trackSectionID int,
 	routeID int,
 	orderOfVisitation int,
@@ -161,7 +158,7 @@ CREATE TABLE IF NOT EXISTS Passenger (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS Employee (
+CREATE TABLE IF NOT EXISTS Employees (
 	employeeID int NOT NULL AUTO_INCREMENT,
 	name varchar(255),
 	title varchar(255),
@@ -173,11 +170,12 @@ CREATE TABLE IF NOT EXISTS EmployeeEnginePair (
 	employeeID int,
 	name varchar(255),
 	FOREIGN KEY (name) REFERENCES EngineType(name),
-	FOREIGN KEY (employeeID) REFERENCES Employee(employeeID)
+	FOREIGN KEY (employeeID) REFERENCES Employees(employeeID)
 );
 
 SET FOREIGN_KEY_CHECKS=1;
-################################################################
+
+/* this should be moved elsewhere or removed
 
 CREATE TABLE IF NOT EXISTS states (
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -187,3 +185,5 @@ CREATE TABLE IF NOT EXISTS states (
 );
 
 INSERT INTO states VALUES (1,'Alabama',4822023),(2,'Alaska',731449),(3,'Arizona',6553255),(4,'Arkansas',2949131);
+
+*/
