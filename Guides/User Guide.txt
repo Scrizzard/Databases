@@ -1,0 +1,25 @@
+According to Wikipedia, a user guide has:
+	A cover page
+	A preface, containing details of related documents and information on how to navigate the user guide
+	A contents page
+	A guide on how to use at least the main functions of the system
+	A troubleshooting section detailing possible errors or problems that may occur, along with how to fix them
+	A FAQ (Frequently Asked Questions)
+	Where to find further help, and contact details
+	A glossary
+
+
+We should include:
+
+	How to navigate our web application:
+		How to find a desired view
+		How to open the view
+		How to close the view
+		
+	How to use views:
+		How to add data
+		How to edit data
+		How to write free-form queries 
+		
+	How to know which view to use:
+		limitations and abilities of each

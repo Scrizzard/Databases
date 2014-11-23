@@ -1,1 +1,7 @@
-uhg
+Tables in TMS.sql
+brief statement on how we implemented the tables in the .sql document, and how to add new tables 
+
+Triggers written in TMS.sql
+statement on what triggers we have created, and how to add new ones
+
+PHP pages

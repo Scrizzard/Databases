@@ -1,0 +1,39 @@
+From http://online-learning.com/blog/tips-writing-user-manual/
+
+No one wants to read your user manual. No one will read your user manual from front to back savoring every word and phrase. Technical documents are not novels. Readers want user manuals to answer their questions quickly so that they can get back to whatever they were doing.
+
+A successful user manual provides users with quick answers to the questions that they might have about a particular product. Users searching for information don’t want to know about the latest and greatest features of a product. Users want to know how to complete tasks. Technical writing focuses on user tasks and the concepts that support the tasks.
+
+Think like a user.
+
+When writing a manual, you need to put on a “user’s hat” and think like a user. Once you think like a user, you can write content that the users need to know.
+
+Use active voice. Compare the two sentences below.
+
+Passive voice: Supplies that will be needed to complete this project include a hammer, a screwdriver, and a rubber mallet.
+
+Active voice: To complete this project, you will need a hammer, a screwdriver, and a rubber mallet.
+
+The sentence that uses active voice makes it clear that the reader is the person who will complete the action. By using the active voice, you will make your writing more clear, concise, and direct.
+
+User manuals should always focus on the reader. When writing information that involves the reader, such as instructions, use “you” and the active voice. Speaking directly to the reader will:
+
+    Reinforce the message that the information is intended for the reader
+    Pull readers into the document and make it relevant to them
+    Help to avoid passive voice by focusing on the reader
+
+The primary objective of user manuals is to help users complete tasks. Below are some guidelines to help you write clear and concise instructions.
+
+    Use numbered lists for instructions, unless the instruction includes a single step.
+    
+	Use parallel construction for each step. Usually you should start each step with an imperative word, such as “Enter”, “Click”, “Select”, etc. When you start each step with an imperative word, you are providing the user with clear cues on the required action for each step.
+    
+	Avoid using a system response as a step. For example, don’t say, “The Info dialog window opens” as a step. You can incorporate system responses (when necessary) in the step that initiated the system response or you can mention the system response at the beginning of the following step, e.g. “In the Info dialog window, …”.
+    
+	Provide just enough information so that the user can complete a task or understand a concept. Omit any extraneous information that the user does not need to know. Concise content makes it easier to understand concepts and tasks. 
+
+Establish standards
+
+	When creating documentation, there will be areas where there may be more than one way to spell a word, refer to an object, caption graphics, punctuate sentences, lay out a page, and organize information. These are just a few of the decisions that writers must make when they create documents. By establishing standards, the writer’s job becomes much easier since most of those decisions will have been already made.
+
+	The Chicago Manual of Style and Microsoft Manual of Style are two popular style guides. If you use an established style guide, you may still need to establish some specific guidelines for your writing project. As you encounter any issues with styles, you can create your own additional style rules  that  address the specific needs of your project.
