@@ -5,3 +5,37 @@ Triggers written in TMS.sql
 statement on what triggers we have created, and how to add new ones
 
 PHP pages
+
+How does our program work?
+	Where can specific concerns be found? (which files/functions)
+	Describe the design of the program and give the user an overview, the specifics operation of each file should be described in code comments
+		
+How can the program be changed? (add/drop tables, attributes)
+
+
+Document should have:
+	cover page
+	table of contents
+	high-level discussion of program
+		explain code directory structure (what things are in which folders)
+		what are our conventions? (file naming, variable naming, etc.)
+		
+		describe front end and back end
+			describe our model (talk about tightly-coupled areas in our E/R diagram, how they interact)
+			describe our views
+			
+		describe code
+			overview of what our PHP files do, what HTML files do, etc
+			describe in more detail the nuances of each
+			
+		expected changes and how to implement them
+			change data types
+			adding relations
+			dropping relations
+			adding attributes
+			dropping attributes
+			change how views display data
+			adding/removing constraints
+		
+		other resources
+			mySQL, PHP, HTML resources/documentation links
