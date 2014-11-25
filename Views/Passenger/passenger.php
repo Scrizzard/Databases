@@ -4,7 +4,7 @@ mysql_connect("localhost", "root", "");
 mysql_select_db("tms");
 
 $query = 
-	"SELECT stationOfOrigin, terminalStation, departureDate, departueTime, arrivalDate, arrivalTime, cost FROM Passenger 
+	"SELECT stationOfOrigin, terminalStation, departureDate, departureTime, arrivalDate, arrivalTime, cost FROM Passenger 
 	 INNER JOIN PassengerTicket 
 	 ON Passenger.id = PassengerTicket.passengerID
 	 INNER JOIN TicketPrice

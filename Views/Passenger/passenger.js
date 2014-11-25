@@ -52,7 +52,7 @@ function showTable(stringResult, justOwnTickets){
 		rowString += "<td>" + result[i].terminalStation + "</td>";
 		rowString += "<td>" + result[i].departureDate + "</td>";
 		//the typo in "departure" needs to be fixed in the database
-		rowString += "<td>" + result[i].departueTime + "</td>";
+		rowString += "<td>" + result[i].departureTime + "</td>";
 		rowString += "<td>" + result[i].arrivalDate + "</td>";
 		rowString += "<td>" + result[i].arrivalTime + "</td>";
 		rowString += "<td>$" + result[i].cost + "</td>";

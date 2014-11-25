@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS Voyage (
 	id int NOT NULL,
 	routeID int,
 	departureDate date,
-	departueTime time,
+	departureTime time,
 	arrivalDate date,
 	arrivalTime time,
 	PRIMARY KEY (id),
