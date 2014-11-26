@@ -16,10 +16,11 @@ while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 $rows[] = $row;
 }
 
-$sql = "INSERT INTO Passenger (firstname, lastname, email)
+$sql = "INSERT INTO Passenger (passport number,name,nationality, address, phone, payment type,)
 VALUES ('John', 'Doe', 'john@example.com')";
 
 $sql = "INSERT INTO Ticket (firstname, lastname, email)
 VALUES ('John', 'Doe', 'john@example.com')";
+
 echo json_encode($rows);
 ?>
