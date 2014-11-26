@@ -2,16 +2,11 @@
 mysql_connect("localhost", "root", "");
 mysql_select_db("tms");
 $query =
-"SELECT stationOfOrigin, terminalStation, departureDate, departureTime, arrivalDate, arrivalTime,  FROM voyage
-INNER JOIN PassengerCar
-ON boyage.id = PassengerCar.passengerID
-INNER JOIN TicketPrice
-ON PassengerTicket.carID = TicketPrice.carID AND PassengerTicket.voyageID = TicketPrice.voyageID
-INNER JOIN Voyage
-ON PassengerTicket.voyageID = Voyage.id
-INNER JOIN TrainRoute
-ON Voyage.routeID = TrainRoute.routeID
-WHERE name = \"" . $_GET["name"] . "\"";
+"SELECT stationOfOrigin, terminalStation, departureDate, departureTime, arrivalDate, arrivalTime, class, numberofseats FROM voyage
+INNER JOIN CarVoyagePain
+ON voyage.id = carVoyagePair.carID
+INNER JOIN passengerCar
+ON carVoyagePair.carID=passengerCarID
 $result = mysql_query($query);
 if (!$result) {
 die('Invalid query: ' . mysql_error());
@@ -20,5 +15,11 @@ $rows = array();
 while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 $rows[] = $row;
 }
+
+$sql = "INSERT INTO Passenger (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com')";
+
+$sql = "INSERT INTO Ticket (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com')";
 echo json_encode($rows);
 ?>
