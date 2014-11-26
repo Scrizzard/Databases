@@ -2,16 +2,12 @@
 mysql_connect("localhost", "root", "");
 mysql_select_db("tms");
 $query =
-"SELECT stationOfOrigin, terminalStation, departureDate, departureTime, arrivalDate, arrivalTime, cost FROM Passenger
-INNER JOIN PassengerTicket
-ON Passenger.id = PassengerTicket.passengerID
-INNER JOIN TicketPrice
-ON PassengerTicket.carID = TicketPrice.carID AND PassengerTicket.voyageID = TicketPrice.voyageID
+"SELECT stationOfOrigin, terminalStation, departureDate, departureTime, arrivalDate, arrivalTime FROM EmployeeVoyagePair
 INNER JOIN Voyage
-ON PassengerTicket.voyageID = Voyage.id
+ON employeeVoyagePair.voyageID = Voyage.id
 INNER JOIN TrainRoute
 ON Voyage.routeID = TrainRoute.routeID
-WHERE name = \"" . $_GET["name"] . "\"";
+WHERE employeeID = \"" . $_GET["employeeID"] . "\"";
 $result = mysql_query($query);
 if (!$result) {
 die('Invalid query: ' . mysql_error());
