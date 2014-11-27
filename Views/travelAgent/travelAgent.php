@@ -1,6 +1,5 @@
 <?php
-mysql_connect("localhost", "root", "");
-mysql_select_db("tms");
+include '../DatabaseConnection.php';
 $query =
 "SELECT stationOfOrigin, terminalStation, departureDate, departureTime, arrivalDate, arrivalTime, class, numberofseats FROM voyage
 INNER JOIN CarVoyagePain
