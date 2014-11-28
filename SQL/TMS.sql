@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS Voyage (
 	PRIMARY KEY (id),
 	FOREIGN KEY (routeID)
 	REFERENCES TrainRoute(routeID)
-);	
+);
 
 CREATE TABLE IF NOT EXISTS TrainStation (
 	name varchar(255),
@@ -129,7 +129,7 @@ CREATE TABLE IF NOT EXISTS TrackSection (
     REFERENCES TrainStation(name)
 );
 
-CREATE TABLE IF NOT EXISTS TrainRoute (	
+CREATE TABLE IF NOT EXISTS TrainRoute (
 	routeID int NOT NULL,
 	stationOfOrigin varchar(255),
 	terminalStation varchar(255),
