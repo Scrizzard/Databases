@@ -22,4 +22,14 @@ We should include:
 		How to write free-form queries 
 		
 	How to know which view to use:
-		limitations and abilities of each
+		Passenger-Use this view if you are or would like to become a passenger on train voyage. This view will allow you to create, delete, or update your passenger profile which will house and display all of you train ticket information (past and future).  This view will also allow you to see all upcoming train voyages. This view will not allow you to purchase train tickets, you will have to do this through your travel agent to do this. 
+		
+		Travel Agent- Use this view if you work for an independent, mega, regional, of consortium travel agency. This view will allow you to view up to date vacancies in different classes on train voyages, (including the voyages departure, place, time and date, and arrival place time and date).  You will be able to add your customers to the train database, and purchase ,and cancel tickets on their behalf. This view will also allow you delete, update and create customer information in the train database. You will not be able to update customer ticket information, this must be done by deleting and repurchasing a ticket. 
+		
+		Employee- Use this view if you work for the train company. The view will list all train voyages you will be scheduled to work on.  This view will not allow you to trade/drop/add shifts to your schedule, you with talk to your scheduling manager  to do so. 
+
+		Manager (Employee Scheduler) - Use this view to schedule staff for train voyage. This view will allow you to view all train voyages and the train and cars (including engine) involved in the voyages in order to appropriately schedule staff. You will also be able to add, delete and update employee information.
+
+		Manager (Train Scheduler)-Use this view to schedule train voyages. This view will allow you to add, update and delete train voyages that will occur in the future. You cannot add new train routs, all voyages must run on existing routes. 
+		
+		Head Office-Use this view allows you to change rudimentary aspects of the train system .This view allows you to add, update, and delete train routes, track sections, train stations, and engines. 
