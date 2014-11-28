@@ -47,7 +47,6 @@ th, td{
 #pageCenter{
 	background-color: #DDE;
 	width: 90%;
-	height: 500px;
 	margin: 0 auto;
 	padding: 20px;
 	border-radius: 10px;
@@ -56,4 +55,22 @@ th, td{
 
 #nameField{
 	margin-bottom: 10px;
+}
+
+/* specific to scheduler.html */
+.header{
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.inputGroup{
+	padding-left: 20px;
+}
+
+#submitButton{
+	margin-top: 20px;
+	color: black;
+	font-weight: bold;
 }
