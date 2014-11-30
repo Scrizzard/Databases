@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS TicketPrice (
 	carID int NOT NULL,
 	discount float(9,2) DEFAULT 0.00,
 	price float(9,2),
-	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
-	FOREIGN KEY (carID) REFERENCES Car(id)
+	FOREIGN KEY (voyageID) REFERENCES Voyage(id) ON DELETE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (carID) REFERENCES Car(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS PassengerTicket (
@@ -19,37 +19,37 @@ CREATE TABLE IF NOT EXISTS PassengerTicket (
 	discount float(9,2),
 	seatNumber int,
 	PRIMARY KEY (id),
-	FOREIGN KEY (passengerID) REFERENCES Passenger(id),
-	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
-	FOREIGN KEY (carID) REFERENCES Car(id)
+	FOREIGN KEY (passengerID) REFERENCES Passenger(id) ON DELETE CASCADE,
+	FOREIGN KEY (voyageID) REFERENCES Voyage(id) ON DELETE CASCADE,
+	FOREIGN KEY (carID) REFERENCES Car(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS TicketPassengerPair (
 	ticketID int NOT NULL,
 	passengerID int NOT NULL,
-	FOREIGN KEY (passengerID) REFERENCES Passenger(id),
-	FOREIGN KEY (ticketID) REFERENCES PassengerTicket(id)
+	FOREIGN KEY (passengerID) REFERENCES Passenger(id) ON DELETE CASCADE,
+	FOREIGN KEY (ticketID) REFERENCES PassengerTicket(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS CarVoyagePair (
 	voyageID int NOT NULL,
 	carID int NOT NULL,
-	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
-	FOREIGN KEY (carID) REFERENCES Car(id)
+	FOREIGN KEY (voyageID) REFERENCES Voyage(id) ON DELETE CASCADE,
+	FOREIGN KEY (carID) REFERENCES Car(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS EngineVoyagePair (
 	voyageID int NOT NULL,
 	engineID int NOT NULL,
-	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
-	FOREIGN KEY (engineID) REFERENCES Engine(id)
+	FOREIGN KEY (voyageID) REFERENCES Voyage(id) ON DELETE CASCADE,
+	FOREIGN KEY (engineID) REFERENCES Engine(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS EmployeeVoyagePair (
 	voyageID int NOT NULL,
 	employeeID int NOT NULL,
-	FOREIGN KEY (voyageID) REFERENCES Voyage(id),
-	FOREIGN KEY (employeeID) REFERENCES Employees(id)
+	FOREIGN KEY (voyageID) REFERENCES Voyage(id) ON DELETE CASCADE,
+	FOREIGN KEY (employeeID) REFERENCES Employees(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Car (
@@ -62,19 +62,19 @@ CREATE TABLE IF NOT EXISTS PassengerCar (
 	carID int NOT NULL,
 	numberofSeats int, 
 	class float NOT NULL,
-	FOREIGN KEY (carID) REFERENCES Car(id)
+	FOREIGN KEY (carID) REFERENCES Car(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS BaggageCar (
 	carID int NOT NULL,
 	baggageCapacity int,
-	FOREIGN KEY (carID) REFERENCES Car(id)
+	FOREIGN KEY (carID) REFERENCES Car(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS DiningCar (
 	carID int NOT NULL,
 	passengerLimit int, 
-	FOREIGN KEY (carID) REFERENCES Car(id)
+	FOREIGN KEY (carID) REFERENCES Car(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS EngineType (
@@ -143,8 +143,8 @@ CREATE TABLE IF NOT EXISTS SectionRoute (
 	trackSectionID int,
 	routeID int,
 	orderOfVisitation int,
-	FOREIGN KEY (trackSectionID) REFERENCES TrackSection(SectionID),
-	FOREIGN KEY (routeID) REFERENCES TrainRoute(routeID)
+	FOREIGN KEY (trackSectionID) REFERENCES TrackSection(SectionID) ON DELETE CASCADE,
+	FOREIGN KEY (routeID) REFERENCES TrainRoute(routeID) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Passenger (
@@ -169,8 +169,8 @@ CREATE TABLE IF NOT EXISTS Employees (
 CREATE TABLE IF NOT EXISTS EmployeeEnginePair (
 	employeeID int,
 	name varchar(255),
-	FOREIGN KEY (name) REFERENCES EngineType(name),
-	FOREIGN KEY (employeeID) REFERENCES Employees(id)
+	FOREIGN KEY (name) REFERENCES EngineType(name) ON DELETE CASCADE,
+	FOREIGN KEY (employeeID) REFERENCES Employees(id) ON DELETE CASCADE
 );
 
 SET FOREIGN_KEY_CHECKS=1;
