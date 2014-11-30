@@ -45,7 +45,8 @@ function showTable(stringResult){
 	"<th>Departure Time</th>" +
 	"<th>Arrival Date</th>" +
 	"<th>Arrival Time</th>" +
-	"<th>Cost</th>";
+	"<th>Cost</th>" +
+	"<th>Delete</th>";
 	
 	$("#resultTableHead").html(headerString);
 
@@ -60,6 +61,7 @@ function showTable(stringResult){
 		rowString += "<td>" + result[i].arrivalDate + "</td>";
 		rowString += "<td>" + result[i].arrivalTime + "</td>";
 		rowString += "<td>$" + result[i].cost + "</td>";
+		rowString += "<td><button onclick=\"deleteVoyage(" + result[i].id + ")\">X</button></td>";
 		rowString += "</tr>";
 		$("#resultTableBody").append(rowString);
 	}
@@ -95,7 +97,7 @@ function populateDDL(eleName, lowerBound, upperBound){
 	}
 }
 
-function submitQuery(){
+function submitInsertQuery(){
 	data = {day : $("#dayDDL").val(), 
 			month : $("#monthDDL").val(),
 			year : $("#yearDDL").val(),
@@ -114,3 +116,19 @@ function submitQuery(){
     	}
     });
 }	
+
+function deleteVoyage(id){
+	data = {id : id};	
+
+	$.ajax({  
+    	type: 'GET',  
+    	url: 'delete_voyage.php', 
+    	data: data,
+    	//if the query succeeded, display it using the showTable function defined below
+    	success: function(result){
+    		console.log(result);
+    		fetchVoyages();}
+    });
+
+	//request the ticket information from the database via an AJAX call
+}

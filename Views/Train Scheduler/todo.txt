@@ -1,3 +1,0 @@
-ability to delete voyages
-ability to add cars to voyages
-ability to view scheduled voyages (perhaps this is where voyages could be deleted from) // added by alex
