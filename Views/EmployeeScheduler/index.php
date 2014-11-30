@@ -35,47 +35,55 @@ create, update and delete Employee/Voyage schedule information.
 
 <html>
 	<head>
-	<title>Employee Scheduler</title>
+		<link rel="stylesheet" type="text/css" href="../mainStyle.css">
+ 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<title>Employee Scheduler</title>
 	</head>
 	<body>
 
-		<h1>Upcoming Voyages</h1>
-		<?php 
-		// query and print out voyages coming up in the next 30 days
-		// also display engine & cars assigned to the voyage
-		// also display staff assigned to each voyage
-		// also include drop-down to add staff to the voyage
-		include 'printVoyages.php';
-		?>
+		<h1 id="pageTitle">Train Management System: Employee Scheduler View</h1>
+		<p id="description">This view allows a manager to schedule employees for upcoming voyages, as well as manage the current list of employees.</p>
+
+		<div id="pageCenter">
+
+			<h2>Upcoming Voyages</h2>
+			<?php 
+			// query and print out voyages coming up in the next 30 days
+			// also display engine & cars assigned to the voyage
+			// also display staff assigned to each voyage
+			// also include drop-down to add staff to the voyage
+			include 'printVoyages.php';
+			?>
 
 
-		<h1>Current Employees</h1>
-		<?php
-		// query and print out current employees, each with a link to delete them
-		include 'printEmployees.php';
-		?>
+			<h2>Current Employees</h2>
+			<?php
+			// query and print out current employees, each with a link to delete them
+			include 'printEmployees.php';
+			?>
 
 
-		<h1>Add Employee</h1>
-		<form action="index.php" method="post">
-			<input type="hidden" name="newEmployee" value="newEmployee">
-			<table>
-				<tr>
-					<td>Name:</td>
-					<td><input type="text" limit="255" name="name"></td>
-				</tr>
-				<tr>
-					<td>Title:</td>
-					<td><input type="text" limit="255" name="title"></td>
-				</tr>
-				<tr>
-					<td>Years of Employment:</td>
-					<td><input type="Number" min="0" step="1" value="0" name="yearsOfEmployment"></td>
-				</tr>
-			</table>
-			<input type="submit" value="Add Employee">
-		</form>
+			<h2>Add Employee</h2>
+			<form action="index.php" method="post">
+				<input type="hidden" name="newEmployee" value="newEmployee">
+				<table>
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" limit="255" name="name"></td>
+					</tr>
+					<tr>
+						<td>Title:</td>
+						<td><input type="text" limit="255" name="title"></td>
+					</tr>
+					<tr>
+						<td>Years of Employment:</td>
+						<td><input type="Number" min="0" step="1" value="0" name="yearsOfEmployment"></td>
+					</tr>
+				</table>
+				<input type="submit" value="Add Employee">
+			</form>
 
+		</div>
 
 	</body>
 </html>
