@@ -31,6 +31,4 @@ while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 
 echo json_encode($rows);
 
-
-
 ?>

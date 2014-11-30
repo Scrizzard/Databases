@@ -1,7 +1,29 @@
+window.onload = function(){
+	$.ajax({  
+    	type: 'GET',  
+    	url: 'fetch_names.php', 
+    	success: function(result){
+    		console.log(result);
+    		populateNames(result);}
+    });
+};
+
+function populateNames(stringResult){
+
+	result = $.parseJSON(stringResult);
+	ele = $("#nameDDL");
+
+	for(i = 0; i < result.length; i++){
+		//Weakness here: station of origin and terminal station should be sanitized
+		entryString = "<option value=\"" + result[i].name + "\">" + result[i].name + "</option>";
+		ele.append(entryString);
+	}
+}
+
 //this function is called when the "View Your Tickets" button is pressed
 function fetchTickets(){
 	//put the name (entered in the HTML text input field) into a JSON object so we can send it to the PHP page
-	data = {name : $("#nameInput").val()};	
+	data = {name : $("#nameDDL").val()};	
 
 	//request the ticket information from the database via an AJAX call
 	$.ajax({  
