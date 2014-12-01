@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS Car (
 
 CREATE TABLE IF NOT EXISTS PassengerCar (
 	carID int NOT NULL,
-	numberofSeats int, 
+	numberofSeats int CHECK (numberofSeats >=0) , 
 	class float NOT NULL,
 	FOREIGN KEY (carID) REFERENCES Car(id) ON DELETE CASCADE
 );
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS EngineType (
 
 CREATE TABLE IF NOT EXISTS Engine (
 	id int NOT NULL AUTO_INCREMENT,
-	yearOfConstruction int,
+	yearOfConstruction int CHECK (yearOfConstruction > date),
 	inServiceState boolean,
     name varchar(255),
     PRIMARY KEY (id),
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS Voyage (
 	routeID int,
 	departureDate date,
 	departureTime time,
-	arrivalDate date,
+	arrivalDate date CHECK (arrivalDate >= departureDate),
 	arrivalTime time,
 	PRIMARY KEY (id),
 	FOREIGN KEY (routeID)
