@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<script type="text/javascript" src="jquery-ui-redmond/external/jquery/jquery.js"></script>
+		<script type="text/javascript" src="jquery-ui-redmond/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="ticket_agent.js"></script>
+		
+		<link href='jquery-ui-redmond/jquery-ui.min.css' rel='stylesheet' type='text/css'>
+		<link href='jquery-ui-redmond/jquery-ui.structure.min.css' rel='stylesheet' type='text/css'>
+		<link href='jquery-ui-redmond/jquery-ui.theme.min.css' rel='stylesheet' type='text/css'>
+		<link href='style.css' rel='stylesheet' type='text/css'>
+		
+ 
+		<title>Ticket Agent</title>
+	</head>
+	<body>
+		<p id="pageTitle">Train Management System: Ticket Agent View</p>
+		<p id="description">This view allows a manager to schedule and cancel future voyages.</p>
+
+		<div id="pageCenter">
+		
+		
+			<div id="accordion">
+				
+				<h3>View/Add/Remove Passengers</h3>
+				<div>
+					<table id="passengerTable"></table>
+				</div>
+				
+				<h3>View/Add/Remove Tickets</h3>
+				<div>
+					<table id="ticketTable"></table>
+				</div>
+				
+				<h3>View Voyages</h3>
+				<div>
+					<table id="voyageTable"></table>
+				</div>
+				
+			</div>
+			
+		
+		</div>
+	</body>
+</html>
