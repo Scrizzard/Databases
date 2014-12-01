@@ -4,7 +4,7 @@ Tickets are issued for future voyages-CKECK, or assertion
 
 Values are positive-I think we have to do this with a CKECK
 
-Passenger cars are not oversold-CHECK
+///Passenger cars are not oversold-CHECK
 
 One seat per individual per voyage-TRIGGER..on insert look for passenger with same id on that voyage 
 
@@ -16,13 +16,13 @@ Each voyage has one engine-TRIGGER...when inseting into voyage
 
 The engine can pull all the cars-TRIGGER...on adding a car to a voyage
 
-Engines types are invented in the past-CHECK
+///Engines types are invented in the past-CHECK
 
-Voyages arrive after they depart-use a CHEECK
+///Voyages arrive after they depart-use a CHEECK
 
 Trains do not collide at their outset-TRIGGER...when adding new voyages
 
-All active trains and cars are in service-CHECK
+///All active trains and cars are in service-CHECK
 
 Routes have at least one stop-ASSERTION
 
