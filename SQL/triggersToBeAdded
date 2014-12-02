@@ -1,0 +1,9 @@
+CREATE TRIGGER oneSeat
+AFTER INSERT ON PassergerTicket
+REFRENCING 
+  OLD ROW AS OldRow
+  NEW ROW AS NewRow
+FOR EACH ROW
+WHEN OldRow.passengerID= NewRow.passengerID AND OldRow.voyageID=NewRow.voyageID
+  UPDATE PassengerTicket
+  SET carID=NewRow.carID AND seatNumber=NewRow.seatNumber
