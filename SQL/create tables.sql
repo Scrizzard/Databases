@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS Engine (
     name varchar(255),
     PRIMARY KEY (id),
     FOREIGN KEY (name)
-    REFERENCES EngineType(name)
+    REFERENCES EngineType(name) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Voyage (
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS Voyage (
 	arrivalTime time,
 	PRIMARY KEY (id),
 	FOREIGN KEY (routeID)
-	REFERENCES TrainRoute(routeID)
+	REFERENCES TrainRoute(routeID) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS TrainStation (
@@ -118,15 +118,15 @@ CREATE TABLE IF NOT EXISTS TrainStation (
 );
 
 CREATE TABLE IF NOT EXISTS TrackSection (
-	sectionID int NOT NULL,
+	sectionID int NOT NULL AUTO_INCREMENT,
 	stationOfOrigin varchar(255),
 	terminalStation varchar(255),
 	inServiceState boolean,
 	PRIMARY KEY (sectionID),
 	FOREIGN KEY (stationOfOrigin)
-    REFERENCES TrainStation(name),
+    REFERENCES TrainStation(name) ON DELETE CASCADE,
 	FOREIGN KEY (terminalStation)
-    REFERENCES TrainStation(name)
+    REFERENCES TrainStation(name) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS TrainRoute (
@@ -174,16 +174,3 @@ CREATE TABLE IF NOT EXISTS EmployeeEnginePair (
 );
 
 SET FOREIGN_KEY_CHECKS=1;
-
-/* this should be moved elsewhere or removed
-
-CREATE TABLE IF NOT EXISTS states (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  state char(25) DEFAULT NULL,
-  population int(9) DEFAULT NULL,
-  PRIMARY KEY (id)
-);
-
-INSERT INTO states VALUES (1,'Alabama',4822023),(2,'Alaska',731449),(3,'Arizona',6553255),(4,'Arkansas',2949131);
-
-*/
