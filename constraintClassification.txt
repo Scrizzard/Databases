@@ -1,12 +1,10 @@
-Each voyage has an operator-CHECK might be to messy as a check could be a trigger 
+Each voyage has an operator- TRIGGER 
 
-Tickets are issued for future voyages-CKECK, or assertion 
-
-Values are positive-I think we have to do this with a CKECK
+///Tickets are issued for future voyages- This is done by only showing travel agents upcoming voyages
 
 ///Passenger cars are not oversold-CHECK
 
-One seat per individual per voyage-TRIGGER..on insert look for passenger with same id on that voyage 
+///One seat per individual per voyage-TRIGGER.. the trigger "oneSeat" deletes and replaces the old ticket if a new one is entered for the same passeenger
 
 The baggage cars can fit all passengers' baggage- TRIGGER. add new bggage cars by checking how many passengers cars on a voyage and how many passengers in those cars 
 
