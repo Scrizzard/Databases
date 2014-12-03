@@ -1,32 +1,73 @@
 CREATE TRIGGER oneSeat
-AFTER INSERT ON PassergerTicket
-REFRENCING 
-  OLD ROW AS OldRow
+BEFORE INSERT ON Passenger
+REFRENCING
   NEW ROW AS NewRow
+  NEW TABLE AS NewTable
 FOR EACH ROW
-WHEN OldRow.passengerID= NewRow.passengerID AND OldRow.voyageID=NewRow.voyageID
-  UPDATE PassengerTicket
-  SET carID=NewRow.carID AND seatNumber=NewRow.seatNumber;
-  
-CREATE TRIGGER carOnOneVoyage
-AFTER INSERT ON CarVoyagePair
-REFRENCING 
-  OLD ROW AS OldRow
-  NEW ROW AS NewRow  
+WHEN NewRow.name IS NULL
+UPDATE NewTable SET name='Unknown';
+
+CREATE TRIGGER oneSeat
+BEFORE INSERT ON Passenger
+REFRENCING
+  NEW ROW AS NewRow
+  NEW TABLE AS NewTable
 FOR EACH ROW
-WHEN OldRow.carID= NewRow.carID
-  BEGIN
-    DELETE NewRow
-    FROM CarVoyagePair
-    WHERE carID IN
-      (SELECT voyageID
-      FROM 
-      WHERE )
-        (SELECT voyageID, departureDate, departureTime, arrivalTime 
-        FROM  Voyages
-        WHERE voyageID=NewRow.voyageID OR voyageID=OldRow.voyageID)
-    
-  END;
-  
+WHEN NewRow.address IS NULL
+UPDATE NewTable SET address='Unknown';
+
+CREATE TRIGGER oneSeat
+BEFORE INSERT ON Passenger
+REFRENCING
+  NEW ROW AS NewRow
+  NEW TABLE AS NewTable
+FOR EACH ROW
+WHEN NewRow.passportNumber IS NULL
+UPDATE NewTable SET passportNumber='Unknown';
+
+CREATE TRIGGER oneSeat
+BEFORE INSERT ON Passenger
+REFRENCING
+  NEW ROW AS NewRow
+  NEW TABLE AS NewTable
+FOR EACH ROW
+WHEN NewRow.nationality IS NULL
+UPDATE NewTable SET nationality='Unknown';
+
+CREATE TRIGGER futureVoyage
+BEFORE INSERT ON Voyage
+REFRENCING
+  NEW ROW AS NewRow
+  NEW TABLE AS NewTable
+FOR EACH ROW
+WHEN NewRow.departureDate <date()
+DELETE NewRow FROM NewTable
+
+CREATE TRIGGER maxCars
+BEFORE INSERT ON CarVoyagePair
+REFRENCING
+  NEW ROW AS NewRow
+  OLD TABLE AS OldTable
+FOR EACH ROW
+WHEN( COUNT carID WHEN NewRow.voyageID =OldTable.voyageID >
+  SELECT maxCarPull
+  FROM EngineType
+  WHERE name=
+    SELECT name
+    FROM Engine
+    WHERE engineID=
+      SELECT engineID
+      FROM engineVoyagePair
+      WHERE voyageID=
+        SELECT voyageID
+        FROM NewRow;
   
 
+
+TRIGGER THAT DO NOT WORK:
+
+CREATE TRIGGER oneSeat
+BEFORE INSERT ON PassengerTicket
+FOR EACH ROW
+DELETE FROM PassengerTicket
+WHERE passengerID = NEW.passengerID AND voyageID = NEW.voyageID;
