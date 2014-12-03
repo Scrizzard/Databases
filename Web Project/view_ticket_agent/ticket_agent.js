@@ -4,8 +4,8 @@ var ticketTable;
 
 
 window.onload = function(){
-		$("#accordion").accordion({heightStyle: "content"});
-		$("#return").button();
+		$("#accordion").accordion({heightStyle: "content", collapsible: true});
+		$("#return, button").button();
 		fetchPassengers();
 		fetchTickets();
 		fetchVoyages();
@@ -155,5 +155,25 @@ function displayVoyageTable(stringResult){
 	
 	voyageTable.draw();
 }
+
+function addPassenger(){
+	data = {passport : $("#passenger_passport").val(), 
+			nationality : $("#passenger_nationality").val(),
+			name : $("#passenger_name").val(),
+			id : $("#passenger_id").val(),
+			phone : $("#passenger_phone").val(),
+			payment : $("#passenger_payment").val(),
+			address : $("#passenger_address").val()};
+			
+	$.ajax({  
+    	type: 'GET',
+    	url: 'create_passenger.php', 
+    	data: data,
+    	success: function(result){
+    		//console.log(result);
+    		fetchPassengers();
+    	}
+    });
+}	
 
 function populateDDLs(){}

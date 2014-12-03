@@ -82,10 +82,45 @@
 			
 			<h3>Create Passenger</h3>
 			<div>
+				<p>ID</p>
+				<input type="text" id="passenger_id">
+
+				<p>Name</p>
+				<input type="text" id="passenger_name">
+				
+				<p>Nationality</p>
+				<input type="text" id="passenger_nationality">
+				
+				<p>Phone Number</p>
+				<input type="text" id="passenger_phone">
+				
+				<p>Address</p>				
+				<input type="text" id="passenger_address">
+				
+				<p>Passport Number</p>				
+				<input type="text" id="passenger_passport">
+
+				<p>Payment Type</p>				
+				<input type="text" id="passenger_payment">				
+
+				<br/>
+				<button onclick="addPassenger()">Submit</button>
+
 			</div>			
 
 			<h3>Create Ticket</h3>
 			<div>
+				
+				<!-- TODO: PHP pages to generate options go inside the select tags -->
+				<p>Select a Passenger</p>
+				<select></select>
+				<p>Select a Voyage</p>
+				<select></select>
+				<p>Select a Car</p>
+				<select></select>
+				
+				<button onclick="addPassenger()">Submit</button>
+
 			</div>
 			
 		</div>

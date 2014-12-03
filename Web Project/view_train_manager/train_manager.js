@@ -100,7 +100,7 @@ function submitInsertQuery(){
 			
 	$.ajax({  
     	type: 'GET',
-    	url: 'scheduler_insert.php', 
+    	url: 'insert_voyage.php', 
     	data: data,
     	success: function(result){
     		fetchVoyages();
