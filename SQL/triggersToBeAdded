@@ -6,4 +6,27 @@ REFRENCING
 FOR EACH ROW
 WHEN OldRow.passengerID= NewRow.passengerID AND OldRow.voyageID=NewRow.voyageID
   UPDATE PassengerTicket
-  SET carID=NewRow.carID AND seatNumber=NewRow.seatNumber
+  SET carID=NewRow.carID AND seatNumber=NewRow.seatNumber;
+  
+CREATE TRIGGER carOnOneVoyage
+AFTER INSERT ON CarVoyagePair
+REFRENCING 
+  OLD ROW AS OldRow
+  NEW ROW AS NewRow  
+FOR EACH ROW
+WHEN OldRow.carID= NewRow.carID
+  BEGIN
+    DELETE NewRow
+    FROM CarVoyagePair
+    WHERE carID IN
+      (SELECT voyageID
+      FROM 
+      WHERE )
+        (SELECT voyageID, departureDate, departureTime, arrivalTime 
+        FROM  Voyages
+        WHERE voyageID=NewRow.voyageID OR voyageID=OldRow.voyageID)
+    
+  END;
+  
+  
+
