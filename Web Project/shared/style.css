@@ -1,0 +1,151 @@
+html *{
+	font-family: 'Roboto', sans-serif;
+	color: rgb(46, 110, 158);
+}
+
+body{
+	background-color: #EEE;	
+}
+
+select, option{
+	color: black;
+}
+
+#pageTitle, #subtitle{
+	text-align: center;
+}
+
+#pageTitle{
+	font-weight: bold;
+	font-size: 2.3em;
+	margin-bottom: 5px;
+}
+
+#subtitle{
+	font-size: 1.6em;
+	font-style: italic;
+}
+
+#flatline{
+	width: 40%;
+	border: 1px solid rgb(46, 110, 158);
+	margin: 0 auto 30px;
+}
+
+#buttonWrapper, #documentWrapper, #freeFormWrapper, #newVoyageWrapper, #queryHeader, #queryString{
+	margin: 0 auto;
+	text-align: center;
+}
+
+#queryHeader{
+	font-weight: bold;
+}
+
+#newVoyageWrapper{
+	padding-bottom: 40px;
+}
+
+#buttonWrapper > a{
+	padding: 10px 0;
+	margin: 10px 0;
+	width: 240px;
+}
+
+#documentWrapper{
+	margin-top: 50px;
+}
+
+#documentWrapper > a{
+	font-size: 1.2em;
+	margin: 10px;
+}
+
+.controls{
+	text-align: center;
+	margin: 0 auto;
+}
+
+.controls > p{
+	display: inline-block;
+	margin-top: 50px;
+	font-size: 1.5em;
+}
+
+#accordion{
+	width: 75%;
+	margin: 0 auto;
+}
+
+.inputForm{
+	text-align: center;
+	margin: 50px auto 0;
+}
+
+.inputForm > p{
+	font-size: 1.2em;
+}
+
+#submitButton{
+	font-size: 1.0em;
+}
+
+.header{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.minorHeader{
+	font-size: 1.3em;
+}
+
+#accordion{
+	background-color: #EEE;
+	width: 85%;	
+}
+
+#employeeForm > div{
+	text-align: center;
+}
+
+#employeeForm > div > div{
+	display: inline-block;
+	text-align: center;
+	padding: 5px;
+}
+
+#employeeForm > div > div > p{
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0, 0, 5px, 0;
+}
+
+#displayTableWrapper{
+	width: 85%;
+	margin: 0 auto;
+}
+
+#resultHeader{
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-left: 8%;
+}
+
+.inputGroup{
+	padding-bottom: 10px;
+}
+
+/* DataTable css modification */
+
+.dataTable > tbody > tr > td{
+	border: 1px solid rgb(197, 213, 236);
+	color: black;
+}
+
+.DataTables_sort_icon{
+	display: inline;
+}
+
+.fg-button{
+	margin: 0 2px !important;
+}
+
